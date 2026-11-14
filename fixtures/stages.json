@@ -1,0 +1,69 @@
+{
+  "initial": {
+    "uidvalidity": 900,
+    "messages": [
+      {
+        "uid": 11,
+        "file": "11.eml",
+        "flags": []
+      },
+      {
+        "uid": 12,
+        "file": "12.eml",
+        "flags": [
+          "\\Seen"
+        ]
+      },
+      {
+        "uid": 13,
+        "file": "13.eml",
+        "flags": []
+      }
+    ]
+  },
+  "shift": {
+    "uidvalidity": 900,
+    "messages": [
+      {
+        "uid": 11,
+        "file": "11.eml",
+        "flags": []
+      },
+      {
+        "uid": 12,
+        "file": "12.eml",
+        "flags": [
+          "\\Flagged",
+          "\\Seen"
+        ]
+      },
+      {
+        "uid": 13,
+        "file": "13.eml",
+        "flags": []
+      }
+    ],
+    "expunge_on_first_fetch": 11
+  },
+  "reset": {
+    "uidvalidity": 901,
+    "messages": [
+      {
+        "uid": 11,
+        "file": "11-new.eml",
+        "flags": []
+      }
+    ]
+  },
+  "truncated": {
+    "uidvalidity": 900,
+    "messages": [
+      {
+        "uid": 11,
+        "file": "11.eml",
+        "flags": []
+      }
+    ],
+    "truncate_literal": true
+  }
+}
