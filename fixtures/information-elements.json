@@ -1,0 +1,12 @@
+{
+  "standard": {
+    "1": "octetDeltaCount:uint",
+    "2": "packetDeltaCount:uint",
+    "7": "sourceTransportPort:uint",
+    "8": "sourceIPv4Address:ipv4",
+    "12": "destinationIPv4Address:ipv4"
+  },
+  "enterprise": {
+    "32473:1": "siteLabel:utf8"
+  }
+}

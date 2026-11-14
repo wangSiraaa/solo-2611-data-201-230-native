@@ -1,0 +1,6 @@
+{
+  "templates": "only Template Set 2; fieldCount=0 withdraws a single explicit id >=256",
+  "padding": "0..3 zero bytes only if remaining shorter than minimum possible record; otherwise parse a record or reject; zero data records allowed",
+  "lengths": "uint fields accept lengths 1,2,4,8; ipv4 exactly4; labels variable; uint is unsigned network order",
+  "unknown_template": "retain raw set and position; never later reinterpret"
+}

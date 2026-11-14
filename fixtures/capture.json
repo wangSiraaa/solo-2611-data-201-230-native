@@ -1,0 +1,34 @@
+[
+  {
+    "file": "messages/00.bin",
+    "exporter": "a"
+  },
+  {
+    "file": "messages/01.bin",
+    "exporter": "a"
+  },
+  {
+    "file": "messages/02.bin",
+    "exporter": "a"
+  },
+  {
+    "file": "messages/03.bin",
+    "exporter": "a"
+  },
+  {
+    "file": "messages/04.bin",
+    "exporter": "b"
+  },
+  {
+    "file": "messages/05.bin",
+    "exporter": "a"
+  },
+  {
+    "file": "messages/06.bin",
+    "exporter": "a"
+  },
+  {
+    "file": "messages/07.bin",
+    "exporter": "a"
+  }
+]
