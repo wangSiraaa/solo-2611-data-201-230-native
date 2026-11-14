@@ -1,0 +1,17 @@
+{
+  "drop_first_bulk_after": 2,
+  "transient_429_ids": [
+    "retry"
+  ],
+  "initial": [
+    {
+      "index": "orders",
+      "id": "newer",
+      "version": 5,
+      "document": {
+        "sku": "N",
+        "amount_cents": 500
+      }
+    }
+  ]
+}

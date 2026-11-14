@@ -1,0 +1,8 @@
+{"source_id": "s1", "index": "orders", "id": "a", "version": 1, "document": {"sku": "A", "amount_cents": 100}}
+{"source_id": "s2", "index": "orders", "id": "b", "version": 1, "document": {"sku": "B", "amount_cents": 200}}
+{"source_id": "s3", "index": "orders", "id": "retry", "version": 1, "document": {"sku": "R", "amount_cents": 300}}
+{"source_id": "s4", "index": "orders", "id": "bad", "version": 1, "document": {"sku": "BAD", "amount_cents": "wrong"}}
+{"source_id": "s5", "index": "orders", "id": "a", "version": 1, "document": {"sku": "A", "amount_cents": 100}}
+{"source_id": "s6", "index": "orders", "id": "a", "version": 1, "document": {"sku": "A", "amount_cents": 999}}
+{"source_id": "s7", "index": "orders", "id": "newer", "version": 2, "document": {"sku": "N", "amount_cents": 200}}
+{"source_id": "s8", "index": "orders", "id": "b", "version": 2, "document": {"sku": "B", "amount_cents": 220}}
