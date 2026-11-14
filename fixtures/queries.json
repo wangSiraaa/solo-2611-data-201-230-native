@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": {
+      "namespace": "local",
+      "name": "report",
+      "version": "1"
+    },
+    "depth": 5
+  },
+  {
+    "dataset": {
+      "namespace": "local",
+      "name": "clean",
+      "version": "2"
+    },
+    "depth": 5
+  },
+  {
+    "dataset": {
+      "namespace": "local",
+      "name": "a",
+      "version": "1"
+    },
+    "depth": 10
+  }
+]

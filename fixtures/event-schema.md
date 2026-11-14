@@ -1,0 +1,2 @@
+# 受限事件契约
+字段恰为题面所列，event_id/eventTime/runId/job namespace/name为非空字符串，eventTime是带Z的ISO UTC。eventType只取START、COMPLETE、FAIL。inputs/outputs是数组，成员为namespace/name/version三个非空字符串，顺序无语义，同数组重复身份折叠。事件规范内容忽略JSON键序和inputs/outputs排列；event_id不参与内容摘要。COMPLETE的inputs/outputs是本次运行完整实际集合，START集合只是意图，不要求与终态完全相同。重复COMPLETE的eventTime可以不同，只要job和实际集合相同视为同一成功事实，不构成冲突。两个不同run声明同输出版本即多生产者，不隐含内容相同。ingest拒绝的event_id碰撞不改变此前合法事件。
