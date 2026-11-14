@@ -1,0 +1,13 @@
+{
+  "parents": [
+    "route_fixture.events",
+    "route_fixture.strict"
+  ],
+  "batch_rows": 3,
+  "supported_types": [
+    "bigint",
+    "integer",
+    "text"
+  ],
+  "max_partition_depth": 2
+}

@@ -1,0 +1,8 @@
+{"row_id": 1, "tenant": "east", "day_seq": 9, "slot": 999, "value": 10}
+{"row_id": 2, "tenant": "west", "day_seq": 10, "slot": -1, "value": 20}
+{"row_id": 3, "tenant": "east", "day_seq": 10, "slot": 0, "value": 30}
+{"row_id": 4, "tenant": "west", "day_seq": 20, "slot": 0, "value": 40}
+{"row_id": 5, "tenant": "east", "day_seq": null, "slot": 2, "value": 50}
+{"row_id": 6, "tenant": null, "day_seq": 15, "slot": 1, "value": 60}
+{"row_id": 7, "tenant": "else", "day_seq": 15, "slot": 1, "value": 70}
+{"row_id": 8, "tenant": "east", "day_seq": 19, "slot": 999, "value": 80}

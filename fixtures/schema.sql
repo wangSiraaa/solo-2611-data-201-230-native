@@ -1,0 +1,11 @@
+CREATE SCHEMA route_fixture;
+CREATE TABLE route_fixture.events(row_id bigint NOT NULL, tenant text COLLATE "C", day_seq integer, slot integer, value integer CHECK(value>=0)) PARTITION BY LIST(tenant);
+CREATE TABLE route_fixture.regional PARTITION OF route_fixture.events FOR VALUES IN ('east','west') PARTITION BY RANGE(day_seq,slot);
+CREATE TABLE route_fixture.early PARTITION OF route_fixture.regional FOR VALUES FROM (MINVALUE,MINVALUE) TO (10,0);
+CREATE TABLE route_fixture.middle PARTITION OF route_fixture.regional FOR VALUES FROM (10,0) TO (20,0);
+CREATE TABLE route_fixture.regional_default PARTITION OF route_fixture.regional DEFAULT;
+CREATE TABLE route_fixture.null_tenant PARTITION OF route_fixture.events FOR VALUES IN (NULL);
+CREATE TABLE route_fixture.other_tenant PARTITION OF route_fixture.events DEFAULT;
+CREATE TABLE route_fixture.strict(row_id bigint NOT NULL, tenant text COLLATE "C", day_seq integer, slot integer, value integer CHECK(value>=0)) PARTITION BY LIST(tenant);
+CREATE TABLE route_fixture.strict_east PARTITION OF route_fixture.strict FOR VALUES IN ('east') PARTITION BY RANGE(day_seq,slot);
+CREATE TABLE route_fixture.strict_mid PARTITION OF route_fixture.strict_east FOR VALUES FROM (10,0) TO (20,0);
