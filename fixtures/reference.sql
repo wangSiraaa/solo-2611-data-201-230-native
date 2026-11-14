@@ -1,0 +1,1 @@
+WITH u AS (SELECT * FROM payments WHERE status='ok' UNION ALL SELECT * FROM payments WHERE amount>0) SELECT b.region,COUNT(*) AS n,SUM(u.amount) AS amount FROM u JOIN buckets b ON u.account=b.account GROUP BY b.region;

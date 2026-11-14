@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {
+      "id": "p",
+      "op": "source",
+      "table": "payments",
+      "path": "fixtures/payments.jsonl"
+    },
+    {
+      "id": "b",
+      "op": "source",
+      "table": "buckets",
+      "path": "fixtures/buckets.jsonl"
+    },
+    {
+      "id": "ok",
+      "op": "filter",
+      "input": "p",
+      "field": "status",
+      "cmp": "eq",
+      "value": "ok"
+    },
+    {
+      "id": "positive",
+      "op": "filter",
+      "input": "p",
+      "field": "amount",
+      "cmp": "gt",
+      "value": 0
+    },
+    {
+      "id": "u",
+      "op": "union_all",
+      "left": "ok",
+      "right": "positive"
+    },
+    {
+      "id": "j",
+      "op": "inner_join",
+      "left": "u",
+      "right": "b",
+      "left_key": "account",
+      "right_key": "account",
+      "left_prefix": "p_",
+      "right_prefix": "b_"
+    },
+    {
+      "id": "g",
+      "op": "group",
+      "input": "j",
+      "keys": [
+        "b_region"
+      ],
+      "aggregates": [
+        {
+          "name": "n",
+          "fn": "count"
+        },
+        {
+          "name": "amount",
+          "fn": "sum",
+          "field": "p_amount"
+        }
+      ]
+    }
+  ],
+  "output": "g"
+}

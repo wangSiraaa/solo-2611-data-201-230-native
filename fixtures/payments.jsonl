@@ -1,0 +1,5 @@
+{"row_id": "p1", "account": "A", "amount": 10, "status": "ok"}
+{"row_id": "p2", "account": "A", "amount": 10, "status": "ok"}
+{"row_id": "p3", "account": "A", "amount": null, "status": "ok"}
+{"row_id": "p4", "account": "B", "amount": 8, "status": "bad"}
+{"row_id": "p5", "account": null, "amount": 9, "status": "ok"}
