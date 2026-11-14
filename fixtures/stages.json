@@ -1,0 +1,173 @@
+{
+  "zone": "example.test.",
+  "stages": {
+    "base": {
+      "serial": 100,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 60 A 192.0.2.1"
+      ]
+    },
+    "two": {
+      "serial": 102,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 120 A 192.0.2.2"
+      ],
+      "deltas": [
+        {
+          "old": 100,
+          "new": 101,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.1"
+          ],
+          "add": [
+            "www.example.test. 60 A 192.0.2.2"
+          ]
+        },
+        {
+          "old": 101,
+          "new": 102,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.2"
+          ],
+          "add": [
+            "www.example.test. 120 A 192.0.2.2"
+          ]
+        }
+      ]
+    },
+    "wrap-base": {
+      "serial": 4294967295,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 60 A 192.0.2.1"
+      ]
+    },
+    "wrap": {
+      "serial": 0,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 60 A 192.0.2.2"
+      ],
+      "deltas": [
+        {
+          "old": 4294967295,
+          "new": 0,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.1"
+          ],
+          "add": [
+            "www.example.test. 60 A 192.0.2.2"
+          ]
+        }
+      ]
+    },
+    "fallback": {
+      "serial": 103,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 60 A 192.0.2.2"
+      ],
+      "fallback": true
+    },
+    "bad-gap": {
+      "serial": 102,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 120 A 192.0.2.2"
+      ],
+      "deltas": [
+        {
+          "old": 99,
+          "new": 101,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.1"
+          ],
+          "add": [
+            "www.example.test. 60 A 192.0.2.2"
+          ]
+        },
+        {
+          "old": 101,
+          "new": 102,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.2"
+          ],
+          "add": [
+            "www.example.test. 120 A 192.0.2.2"
+          ]
+        }
+      ]
+    },
+    "truncated": {
+      "serial": 102,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 120 A 192.0.2.2"
+      ],
+      "deltas": [
+        {
+          "old": 100,
+          "new": 101,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.1"
+          ],
+          "add": [
+            "www.example.test. 60 A 192.0.2.2"
+          ]
+        },
+        {
+          "old": 101,
+          "new": 102,
+          "delete": [
+            "www.example.test. 60 A 192.0.2.2"
+          ],
+          "add": [
+            "www.example.test. 120 A 192.0.2.2"
+          ]
+        }
+      ],
+      "truncate": true
+    },
+    "unchanged": {
+      "serial": 100,
+      "records": [
+        "example.test. 60 NS ns.example.test.",
+        "ns.example.test. 60 A 127.0.0.1",
+        "example.test. 60 MX 10 mail.example.test.",
+        "mail.example.test. 60 A 192.0.2.5",
+        "example.test. 60 TXT \"first part\" \"second part\"",
+        "www.example.test. 60 A 192.0.2.1"
+      ]
+    }
+  }
+}

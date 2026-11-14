@@ -1,0 +1,7 @@
+example.test. 60 IN SOA ns.example.test. hostmaster.example.test. 4294967295 3600 600 86400 60
+example.test. 60 IN NS ns.example.test.
+ns.example.test. 60 IN A 127.0.0.1
+example.test. 60 IN MX 10 mail.example.test.
+mail.example.test. 60 IN A 192.0.2.5
+example.test. 60 IN TXT "first part" "second part"
+www.example.test. 60 IN A 192.0.2.1
