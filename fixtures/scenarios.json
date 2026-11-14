@@ -1,0 +1,88 @@
+{
+  "standard": [
+    {
+      "session_present": false,
+      "actions": [
+        {
+          "send": "publish",
+          "id": 7,
+          "payload": "{\"sensor\":\"A\",\"value\":17}",
+          "dup": false
+        },
+        {
+          "expect": "pubrec",
+          "id": 7
+        },
+        {
+          "send": "pubrel",
+          "id": 7
+        },
+        {
+          "close": true
+        }
+      ]
+    },
+    {
+      "session_present": true,
+      "actions": [
+        {
+          "send": "pubrel",
+          "id": 7
+        },
+        {
+          "expect": "pubcomp",
+          "id": 7
+        },
+        {
+          "send": "publish",
+          "id": 7,
+          "payload": "{\"sensor\":\"A\",\"value\":23}",
+          "dup": false
+        },
+        {
+          "send": "publish",
+          "id": 7,
+          "payload": "{\"sensor\":\"A\",\"value\":23}",
+          "dup": true
+        },
+        {
+          "expect": "pubrec",
+          "id": 7
+        },
+        {
+          "send": "pubrel",
+          "id": 7
+        },
+        {
+          "expect": "pubcomp",
+          "id": 7
+        }
+      ]
+    }
+  ],
+  "reset": [
+    {
+      "session_present": false,
+      "actions": [
+        {
+          "send": "publish",
+          "id": 7,
+          "payload": "{\"sensor\":\"A\",\"value\":29}",
+          "dup": false
+        },
+        {
+          "expect": "pubrec",
+          "id": 7
+        },
+        {
+          "send": "pubrel",
+          "id": 7
+        },
+        {
+          "expect": "pubcomp",
+          "id": 7
+        }
+      ]
+    }
+  ]
+}
