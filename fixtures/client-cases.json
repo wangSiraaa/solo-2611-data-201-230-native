@@ -1,0 +1,47 @@
+[
+  {
+    "id": "insert_default",
+    "sql": "INSERT INTO split_fixture.records(id,tenant,name) VALUES(5,'east','戊') RETURNING *",
+    "expect": "success"
+  },
+  {
+    "id": "hot_update",
+    "sql": "UPDATE split_fixture.records SET name='甲改' WHERE id=1 RETURNING *",
+    "expect": "success"
+  },
+  {
+    "id": "add_detail",
+    "sql": "UPDATE split_fixture.records SET note='新备注' WHERE id=1 RETURNING *",
+    "expect": "success"
+  },
+  {
+    "id": "remove_detail",
+    "sql": "UPDATE split_fixture.records SET note=NULL,attachment=NULL WHERE id=3 RETURNING *",
+    "expect": "success"
+  },
+  {
+    "id": "empty_is_present",
+    "sql": "UPDATE split_fixture.records SET note='',attachment=decode('','hex') WHERE id=1 RETURNING *",
+    "expect": "success"
+  },
+  {
+    "id": "delete",
+    "sql": "DELETE FROM split_fixture.records WHERE id=4 RETURNING *",
+    "expect": "success"
+  },
+  {
+    "id": "duplicate",
+    "sql": "INSERT INTO split_fixture.records(id,tenant,name) VALUES(2,'east','重复')",
+    "expect": "failure"
+  },
+  {
+    "id": "bad_status",
+    "sql": "UPDATE split_fixture.records SET status='broken' WHERE id IN (1,2)",
+    "expect": "failure"
+  },
+  {
+    "id": "immutable_id",
+    "sql": "UPDATE split_fixture.records SET id=99 WHERE id=1",
+    "expect": "failure"
+  }
+]

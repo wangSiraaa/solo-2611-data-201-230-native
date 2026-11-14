@@ -1,0 +1,25 @@
+{
+  "old_name": "split_fixture.records",
+  "hot_columns": [
+    "id",
+    "tenant",
+    "name",
+    "status"
+  ],
+  "cold_columns": [
+    "note",
+    "attachment"
+  ],
+  "detail_presence": "at least one cold value is non-NULL; empty text and empty bytea count as present",
+  "immutable_columns": [
+    "id"
+  ],
+  "supported_client_sql": [
+    "SELECT",
+    "INSERT with explicit id",
+    "UPDATE without changing id",
+    "DELETE",
+    "RETURNING"
+  ],
+  "migration_window": "no concurrent writers"
+}
