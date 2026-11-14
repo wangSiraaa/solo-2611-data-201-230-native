@@ -1,0 +1,53 @@
+{
+  "unit_id": 1,
+  "version_register": 100,
+  "max_registers": 4,
+  "forbidden_ranges": [
+    [
+      6,
+      8
+    ]
+  ],
+  "points": [
+    {
+      "id": "signed",
+      "address": 0,
+      "type": "i16",
+      "byte_order": "big",
+      "word_order": "big",
+      "scale": "1"
+    },
+    {
+      "id": "counter",
+      "address": 1,
+      "type": "u32",
+      "byte_order": "big",
+      "word_order": "big",
+      "scale": "1"
+    },
+    {
+      "id": "alias-low",
+      "address": 2,
+      "type": "u16",
+      "byte_order": "big",
+      "word_order": "big",
+      "scale": "0.1"
+    },
+    {
+      "id": "swapped",
+      "address": 4,
+      "type": "float32",
+      "byte_order": "big",
+      "word_order": "little",
+      "scale": "1"
+    },
+    {
+      "id": "temperature",
+      "address": 8,
+      "type": "i32",
+      "byte_order": "little",
+      "word_order": "big",
+      "scale": "0.01"
+    }
+  ]
+}

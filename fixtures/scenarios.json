@@ -1,0 +1,28 @@
+{
+  "registers": {
+    "0": 65534,
+    "1": 1,
+    "2": 2,
+    "3": 77,
+    "4": 0,
+    "5": 16288,
+    "8": 65279,
+    "9": 63963,
+    "100": 2
+  },
+  "modes": [
+    "normal",
+    "change-once",
+    "changing",
+    "exception",
+    "wrong-tid",
+    "nonfinite"
+  ],
+  "notes": {
+    "change-once": "after first data read sets version from2 to4 and increments register2; then stable",
+    "changing": "each data read increments version by2",
+    "exception": "read including address8 -> exception02",
+    "wrong-tid": "first data response has transaction id+1",
+    "nonfinite": "register4=0,register5=0x7fc0 yields NaN in word-little order"
+  }
+}
