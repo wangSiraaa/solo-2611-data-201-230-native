@@ -1,0 +1,17 @@
+{
+  "outer_table": "outer_rows",
+  "outer_order": "row_id",
+  "batch_size": 2,
+  "expressions": [
+    {
+      "as": "flag",
+      "op": "scalar",
+      "inner_value": "value",
+      "inner_table": "flags",
+      "correlate": {
+        "inner": "customer_id",
+        "outer": "customer_id"
+      }
+    }
+  ]
+}
