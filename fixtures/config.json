@@ -1,0 +1,4 @@
+{
+  "state_entry_limit": 16,
+  "merge_fan_in": 3
+}
