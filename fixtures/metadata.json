@@ -1,0 +1,13 @@
+{
+  "topic": "synthetic",
+  "partition": 0,
+  "high_watermark": 8,
+  "last_stable_offset": 6,
+  "slice_starts_before_transactions": true,
+  "codec": [
+    "none",
+    "gzip"
+  ],
+  "magic": 2,
+  "scope": "control record key version0/type0=ABORT,type1=COMMIT; one in-flight transaction per producer epoch; preserve user headers and tombstones"
+}

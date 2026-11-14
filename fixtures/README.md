@@ -1,0 +1,3 @@
+# 材料说明
+
+partition.log是真实Kafka magic=2 RecordBatch串联字节，metadata.json给读边界。格式按Kafka message format v2；日志offset0/1在同一gzip事务批，offset2为非事务且有重复header key，offset3是ABORT，offset4是另一事务的null value/tombstone，offset5 COMMIT，offset6未决事务，offset7虽为非事务但位于LSO之后。此说明描述输入，不提供导出器。CRC是CRC32C/Castagnoli，非zlib.crc32。CRC覆盖attributes到batch末尾；batchLength从partitionLeaderEpoch开始计。control key为大端int16版本0+int16类型，value为版本0+coordinatorEpoch。bad-crc只改动CRC覆盖字节，truncated缺末尾4字节。可用google-crc32c等库校验，变长整数按Kafka有符号zigzag。
