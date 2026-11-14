@@ -1,0 +1,10 @@
+order_id,customer_id,amount,note
+o1,c1,10.20,ok
+o2,c2,wrong,bad first
+o2,c2,5.00,good later
+o3,missing,1.00,no parent
+o4,c1,-2.00,negative
+o5,c4,0.00,"quoted, value"
+o1,c2,20.00,duplicate
+o6,c1,3.40,"two
+lines"

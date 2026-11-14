@@ -1,0 +1,4 @@
+order_id,customer_id,amount,note
+g1,c1,1.00,one
+g2,c2,2.00,two
+g3,c4,3.00,three

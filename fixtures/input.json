@@ -1,0 +1,7 @@
+{
+  "customers": "fixtures/customers.csv",
+  "orders": "fixtures/orders.csv",
+  "encoding": "UTF-8",
+  "csv_null": "empty fields become SQL NULL; quoted empty is also NULL in this task",
+  "logical_row": "1-based data records excluding header"
+}
