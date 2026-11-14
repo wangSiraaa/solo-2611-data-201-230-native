@@ -1,0 +1,387 @@
+{
+  "resourceMetrics": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "synthetic"
+            }
+          },
+          {
+            "key": "region",
+            "value": {
+              "stringValue": "local"
+            }
+          }
+        ]
+      },
+      "scopeMetrics": [
+        {
+          "scope": {
+            "name": "fixture",
+            "version": "1"
+          },
+          "metrics": [
+            {
+              "name": "cum_events",
+              "unit": "1",
+              "sum": {
+                "aggregationTemporality": 2,
+                "isMonotonic": true,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "asInt": "4",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "20",
+                    "asInt": "9",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "20",
+                    "timeUnixNano": "30",
+                    "asInt": "3",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "delta_events",
+              "unit": "1",
+              "sum": {
+                "aggregationTemporality": 1,
+                "isMonotonic": true,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "asInt": "4",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "10",
+                    "timeUnixNano": "20",
+                    "asInt": "5",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "20",
+                    "timeUnixNano": "30",
+                    "asInt": "3",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "cum_hist",
+              "unit": "1",
+              "histogram": {
+                "aggregationTemporality": 2,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "4",
+                    "bucketCounts": [
+                      "1",
+                      "2",
+                      "1"
+                    ],
+                    "explicitBounds": [
+                      10,
+                      20
+                    ],
+                    "sum": 50
+                  },
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "20",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "9",
+                    "bucketCounts": [
+                      "2",
+                      "4",
+                      "3"
+                    ],
+                    "explicitBounds": [
+                      10,
+                      20
+                    ],
+                    "sum": 140
+                  }
+                ]
+              }
+            },
+            {
+              "name": "delta_hist",
+              "unit": "1",
+              "histogram": {
+                "aggregationTemporality": 1,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "4",
+                    "bucketCounts": [
+                      "1",
+                      "2",
+                      "1"
+                    ],
+                    "explicitBounds": [
+                      10,
+                      20
+                    ],
+                    "sum": 50
+                  },
+                  {
+                    "startTimeUnixNano": "10",
+                    "timeUnixNano": "20",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "5",
+                    "bucketCounts": [
+                      "1",
+                      "2",
+                      "2"
+                    ],
+                    "explicitBounds": [
+                      10,
+                      20
+                    ],
+                    "sum": 90
+                  }
+                ]
+              }
+            },
+            {
+              "name": "bad_hist_schema",
+              "unit": "1",
+              "histogram": {
+                "aggregationTemporality": 2,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "2",
+                    "bucketCounts": [
+                      "1",
+                      "1",
+                      "0"
+                    ],
+                    "explicitBounds": [
+                      10,
+                      20
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "20",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "4",
+                    "bucketCounts": [
+                      "2",
+                      "2",
+                      "0"
+                    ],
+                    "explicitBounds": [
+                      15,
+                      20
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "20",
+                    "timeUnixNano": "30",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ],
+                    "count": "1",
+                    "bucketCounts": [
+                      "1",
+                      "0",
+                      "0"
+                    ],
+                    "explicitBounds": [
+                      15,
+                      20
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "overlap",
+              "unit": "1",
+              "sum": {
+                "aggregationTemporality": 1,
+                "isMonotonic": true,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "asInt": "2",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "5",
+                    "timeUnixNano": "15",
+                    "asInt": "3",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "large",
+              "unit": "1",
+              "sum": {
+                "aggregationTemporality": 2,
+                "isMonotonic": true,
+                "dataPoints": [
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "10",
+                    "asInt": "9007199254740997",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "startTimeUnixNano": "0",
+                    "timeUnixNano": "20",
+                    "asInt": "9007199254740999",
+                    "attributes": [
+                      {
+                        "key": "line",
+                        "value": {
+                          "stringValue": "A"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

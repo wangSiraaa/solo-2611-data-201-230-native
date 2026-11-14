@@ -1,0 +1,10 @@
+{
+  "times": "nanoseconds represented JSON strings; integer exact",
+  "attributes": "stringValue/intValue/boolValue only; duplicate keys invalid; missing=empty collection; typed canonical key",
+  "cumulative": "first full interval start->time; same-start use previous valid point; restart only start>=previous end; schema/inconsistent cumulative closes that epoch until new startTime",
+  "sum": "sum monotonic requires nonnegative asInt; histogram sum optional finite number; interval sum needs both baselines except first point",
+  "mixed_temporality": "a single identity with mixed modes is invalid",
+  "delta_overlap": "exact duplicate collapse only if identical, otherwise mark all intersecting points conflicting and exclude them",
+  "histogram": "nonnegative integer bucket counts; count exact sum; bounds finite strictly increasing",
+  "output": "half-open [start,end), start<end; no resampling or gap filling"
+}

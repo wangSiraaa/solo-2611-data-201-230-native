@@ -1,0 +1,3 @@
+# 材料说明
+
+metrics.json为标准OTLP JSON形态。metrics-shuffled.json仅改变metric与point顺序，归一化结果应按身份与区间稳定。scope.json明确typed属性身份、重复/冲突、baseline失效与mixed-temporality处置：同一完整身份出现不同temporality整流拒绝，不简单拆流掩盖矛盾。cum_events/delta_events、cum_hist/delta_hist是不同metric身份但数值区间等价，可在核验时显式配对，不能在归一化中自动合并。bad_hist_schema在同startTime变桶边界，应停止该计数代，新的startTime=20可重新形成区间。large用于确认整数精度。时间单位是纳秒，样例小数值为便于手算。
