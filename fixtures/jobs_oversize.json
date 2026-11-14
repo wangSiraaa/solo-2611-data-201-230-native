@@ -1,0 +1,67 @@
+{
+  "sources": {
+    "raw": "fixtures/raw.csv"
+  },
+  "nodes": [
+    {
+      "id": "a_clean",
+      "deps": [],
+      "input_artifacts": [
+        "raw"
+      ],
+      "output_artifact": "clean",
+      "max_output_bytes": 120,
+      "op": "clean"
+    },
+    {
+      "id": "b_double",
+      "deps": [
+        "a_clean"
+      ],
+      "input_artifacts": [
+        "clean"
+      ],
+      "output_artifact": "double",
+      "max_output_bytes": 160,
+      "op": "oversize"
+    },
+    {
+      "id": "c_triple",
+      "deps": [
+        "a_clean"
+      ],
+      "input_artifacts": [
+        "clean"
+      ],
+      "output_artifact": "triple",
+      "max_output_bytes": 160,
+      "op": "triple"
+    },
+    {
+      "id": "d_merge",
+      "deps": [
+        "b_double",
+        "c_triple"
+      ],
+      "input_artifacts": [
+        "double",
+        "triple"
+      ],
+      "output_artifact": "final",
+      "max_output_bytes": 250,
+      "op": "merge"
+    }
+  ],
+  "final_artifacts": [
+    "final"
+  ],
+  "quota_bytes": 500,
+  "max_processes": 2,
+  "artifact_names": {
+    "raw": "raw.csv",
+    "clean": "clean.csv",
+    "double": "double.csv",
+    "triple": "triple.csv",
+    "final": "final.csv"
+  }
+}
