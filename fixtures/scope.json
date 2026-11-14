@@ -1,0 +1,47 @@
+{
+  "known_segments": [
+    "ISA",
+    "IEA",
+    "GS",
+    "GE",
+    "ST",
+    "SE",
+    "BSN",
+    "HL",
+    "PRF",
+    "MAN",
+    "LIN",
+    "SN1"
+  ],
+  "extra_allowed": [
+    "TD1",
+    "REF",
+    "DTM"
+  ],
+  "hl_levels": {
+    "S": [
+      "O"
+    ],
+    "O": [
+      "P",
+      "I"
+    ],
+    "P": [
+      "I"
+    ],
+    "I": []
+  },
+  "required": {
+    "S": "BSN02 at transaction level",
+    "O": "PRF01 in HL group",
+    "P": "MAN02 in HL group",
+    "I": "LIN03 product and SN102 positive decimal + SN103 unit"
+  },
+  "failure_scope": {
+    "ISA_IEA": "whole interchange",
+    "GS_GE": "whole group",
+    "ST_SE_or_HL": "that transaction"
+  },
+  "units": "no conversion; use exact Decimal string",
+  "se_count": "all segments from ST to SE inclusive"
+}
