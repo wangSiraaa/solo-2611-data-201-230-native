@@ -1,0 +1,6 @@
+{"kind": "data", "source": "b", "seq": 1, "key": "north", "delta": 3, "_delay_ms": 150}
+{"kind": "data", "source": "b", "seq": 2, "key": "south", "delta": 7}
+{"kind": "barrier", "checkpoint_id": 1}
+{"kind": "barrier", "checkpoint_id": 2}
+{"kind": "data", "source": "b", "seq": 3, "key": "south", "delta": -1}
+{"kind": "end"}

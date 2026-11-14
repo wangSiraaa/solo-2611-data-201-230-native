@@ -1,0 +1,3 @@
+{"kind": "data", "source": "b", "seq": 1, "key": "north", "delta": 3}
+{"kind": "barrier", "checkpoint_id": 2}
+{"kind": "end"}
