@@ -1,0 +1,5 @@
+{
+  "bits_per_axis": 8,
+  "rows_per_block": 16,
+  "max_intervals": 8
+}
