@@ -1,0 +1,28 @@
+{
+  "table_ids": {
+    "catalog.html": [
+      "catalog"
+    ],
+    "catalog-variant.html": [
+      "catalog"
+    ],
+    "bad-cycle.html": [
+      "t"
+    ],
+    "bad-cross-group.html": [
+      "t"
+    ],
+    "bad-cross-table.html": [
+      "t"
+    ]
+  },
+  "rules": {
+    "grid": "Every cell placed at first unoccupied column; positive span cannot intersect occupied slots or cross row group. rowspan=0 is rowgroup remainder.",
+    "implicit_column_headers": "thead th scope col/colgroup whose logical column range intersects target slot, in row then column order.",
+    "implicit_row_headers": "tbody th scope row intersecting target row; scope rowgroup applies every row in its containing tbody.",
+    "explicit_headers": "If headers attribute exists, recursively expand each th headers ancestors before the th itself; stable unique first occurrence; explicit list replaces scope inference. row/rowgroup categorized row, others column.",
+    "nested_tables": "Ignore nested tables entirely when extracting direct cell text.",
+    "text": "Direct cell descendant text excluding nested table; strip outer whitespace only.",
+    "types": "data-type=text,int,decimal; int canonical signed decimal; decimal exactly 2 fractional digits. Without data-type=text."
+  }
+}
