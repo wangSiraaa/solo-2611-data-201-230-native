@@ -1,0 +1,146 @@
+[
+  {
+    "id": "shared_pin",
+    "capacity": 2,
+    "ops": [
+      {
+        "op": "fetch",
+        "page": 0,
+        "as": "a"
+      },
+      {
+        "op": "fetch",
+        "page": 0,
+        "as": "b"
+      },
+      {
+        "op": "write",
+        "handle": "a",
+        "offset": 1,
+        "hex": "aabb"
+      },
+      {
+        "op": "release",
+        "handle": "a"
+      },
+      {
+        "op": "fetch",
+        "page": 1,
+        "as": "c"
+      },
+      {
+        "op": "fetch",
+        "page": 2,
+        "as": "d",
+        "expect": "all_pinned"
+      },
+      {
+        "op": "release",
+        "handle": "b"
+      },
+      {
+        "op": "fetch",
+        "page": 2,
+        "as": "d"
+      },
+      {
+        "op": "read",
+        "handle": "a",
+        "offset": 0,
+        "length": 1,
+        "expect": "invalid_handle"
+      }
+    ]
+  },
+  {
+    "id": "write_fail",
+    "capacity": 1,
+    "ops": [
+      {
+        "op": "fetch",
+        "page": 3,
+        "as": "x"
+      },
+      {
+        "op": "write",
+        "handle": "x",
+        "offset": 0,
+        "hex": "ff"
+      },
+      {
+        "op": "release",
+        "handle": "x"
+      },
+      {
+        "op": "fail_next_write"
+      },
+      {
+        "op": "fetch",
+        "page": 4,
+        "as": "y",
+        "expect": "io_error"
+      },
+      {
+        "op": "fetch",
+        "page": 3,
+        "as": "z"
+      },
+      {
+        "op": "read",
+        "handle": "z",
+        "offset": 0,
+        "length": 1
+      },
+      {
+        "op": "release",
+        "handle": "z"
+      },
+      {
+        "op": "fetch",
+        "page": 4,
+        "as": "y"
+      }
+    ]
+  },
+  {
+    "id": "lru",
+    "capacity": 2,
+    "ops": [
+      {
+        "op": "fetch",
+        "page": 0,
+        "as": "a"
+      },
+      {
+        "op": "release",
+        "handle": "a"
+      },
+      {
+        "op": "fetch",
+        "page": 1,
+        "as": "b"
+      },
+      {
+        "op": "release",
+        "handle": "b"
+      },
+      {
+        "op": "fetch",
+        "page": 0,
+        "as": "c"
+      },
+      {
+        "op": "release",
+        "handle": "c"
+      },
+      {
+        "op": "fetch",
+        "page": 2,
+        "as": "d"
+      },
+      {
+        "op": "flush_all"
+      }
+    ]
+  }
+]
