@@ -1,0 +1,8 @@
+{
+  "source_id": "osrc2",
+  "expected_revision": 0,
+  "expected_raw_sha256": "a7ac79923808844e79d275750d0064ddd57a5267c69fed733fb1084591f133f1",
+  "changes": {
+    "amount": "2.00"
+  }
+}

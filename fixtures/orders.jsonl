@@ -1,0 +1,5 @@
+{"source_id": "osrc1", "order_id": "o1", "customer_id": "c1", "amount": "10.00"}
+{"source_id": "osrc2", "order_id": "o2", "customer_id": "c1", "amount": "-2.00"}
+{"source_id": "osrc3", "order_id": "o3", "customer_id": "c2", "amount": "3.00"}
+{"source_id": "osrc4", "order_id": "o4", "customer_id": "missing", "amount": "4.00"}
+{"source_id": "osrc5", "order_id": "o5", "customer_id": "c3", "amount": "2.00"}

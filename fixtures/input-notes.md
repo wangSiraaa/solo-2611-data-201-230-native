@@ -1,0 +1,1 @@
+原始sha256按JSONL每条物理行去掉末尾一个LF之后的UTF-8原字节计算；本批行内没有字面换行。revision初始为0，仅有效接受的修订文件递增。修订文件语法、允许字段、expected_revision或摘要不合法时不生成新revision；合法变更但业务仍非法时生成新revision并重新记录原因。已经接受的行不接受本题的修订入口。list-rejects应同时包含自身错误和父阻塞信息；state可取rejected/waiting_parent/missing_parent/accepted，状态不能代替多原因集合。

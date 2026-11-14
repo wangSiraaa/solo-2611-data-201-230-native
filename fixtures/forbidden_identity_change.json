@@ -1,0 +1,8 @@
+{
+  "source_id": "csrc1",
+  "expected_revision": 1,
+  "expected_raw_sha256": "ba0829acab1f043507837bf43ae1fd0c70cdd22b04043710b8e46f01188d7f74",
+  "changes": {
+    "customer_id": "other"
+  }
+}
