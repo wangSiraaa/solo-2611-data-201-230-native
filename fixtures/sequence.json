@@ -1,0 +1,9 @@
+[
+  "messages/01-final.hl7",
+  "messages/02-correction.hl7",
+  "messages/03-delete.hl7",
+  "messages/04-alternate.hl7",
+  "messages/duplicate.hl7",
+  "messages/conflict.hl7",
+  "messages/invalid-number.hl7"
+]

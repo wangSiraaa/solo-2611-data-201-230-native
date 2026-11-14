@@ -1,0 +1,41 @@
+{
+  "identity": {
+    "message": [
+      "MSH3",
+      "MSH4",
+      "MSH10"
+    ],
+    "patient": [
+      "PID3.component1",
+      "PID3.component4"
+    ],
+    "order": [
+      "OBR3.component1",
+      "OBR3.component2"
+    ],
+    "observation": [
+      "patient",
+      "order",
+      "OBX3.component1",
+      "OBX3.component3",
+      "OBX4"
+    ]
+  },
+  "segments": "CR terminated UTF-8; no network framing; each file one message",
+  "statuses": {
+    "F": "new final or replace earlier F/C with history",
+    "C": "requires existing final",
+    "D": "requires existing final; remove current",
+    "P": "history only"
+  },
+  "blank_vs_null": "empty field=absent, two quote characters=explicit null; D allows null; NM F/C requires decimal",
+  "escapes": [
+    "F",
+    "S",
+    "R",
+    "T",
+    "E"
+  ],
+  "NTE": "only immediately following OBX/NTE within same OBR; never carries across message",
+  "order": "manifest arrival order authoritative"
+}
