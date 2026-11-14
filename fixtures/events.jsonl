@@ -1,0 +1,10 @@
+{"event_id": "e1", "source": "sales", "partition": "2026-01-02", "version": 1, "path": "fixtures/sales_2026-01-02_v1.csv", "sha256": "4f68a657c7091cd127d2db48cd480e56ff49ea3ab3169c5cd99233199a5cc041"}
+{"event_id": "e2", "source": "sales", "partition": "2026-01-03", "version": 1, "path": "fixtures/sales_2026-01-03_v1.csv", "sha256": "da826e900b9d24987d82e8d875e9551d1255a9a190e38558d4ee9844ad786911"}
+{"event_id": "e3", "source": "fx", "partition": "2026-01-01", "version": 1, "path": "fixtures/fx_2026-01-01_v1.csv", "sha256": "0c99115a2f07025449015ae7c7693878c70313ed5e76709073f727cf4d51968a"}
+{"event_id": "e4", "source": "fx", "partition": "2026-01-01", "version": 2, "path": "fixtures/fx_2026-01-01_v2.csv", "sha256": "0750cb86a84ec16e4289f6a74897ac1a48b61a3ac4ea6bb29f555cad86eead8e"}
+{"event_id": "e3", "source": "fx", "partition": "2026-01-01", "version": 1, "path": "fixtures/fx_2026-01-01_v1.csv", "sha256": "0c99115a2f07025449015ae7c7693878c70313ed5e76709073f727cf4d51968a"}
+{"event_id": "e5", "source": "fx", "partition": "2026-01-01", "version": 1, "path": "fixtures/fx_2026-01-01_v1.csv", "sha256": "0c99115a2f07025449015ae7c7693878c70313ed5e76709073f727cf4d51968a"}
+{"event_id": "e6", "source": "fx", "partition": "2026-01-02", "version": 1, "path": "fixtures/fx_2026-01-02_v1.csv", "sha256": "4b3d4b49cf53fd5fdf1b0fa529dd04696e513dc9d56c5d4123bfe948abe8fe03"}
+{"event_id": "e7", "source": "fx", "partition": "2026-01-02", "version": 2, "path": "fixtures/fx_2026-01-02_v2.csv", "sha256": "2af03e7a1519c1e86fe521867288c900a019de52f73f34024571194ecc30b93e"}
+{"event_id": "e8", "source": "fx", "partition": "2026-01-01", "version": 2, "path": "fixtures/fx_conflict.csv", "sha256": "43bb6d06da8219dd4ce878209293034ec3aed5dabff29f3e4dc42283a2f0b8ba"}
+{"event_id": "e9", "source": "sales", "partition": "2026-01-04", "version": 1, "path": "fixtures/sales_2026-01-04_v1.csv", "sha256": "3a56da79e5c86af9c6ad12f7b7807539dcee2c2f4a27ebca62c4cc7f695d7a0f"}
