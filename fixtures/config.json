@@ -1,0 +1,7 @@
+{
+  "block_length": 8,
+  "bos_id": 1,
+  "eos_id": 2,
+  "pad_id": 0,
+  "max_token_id": 1000000
+}
