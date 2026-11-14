@@ -1,0 +1,15 @@
+{
+  "roots": {
+    "tickets": [
+      "SRC_T_2",
+      "SRC_T_1"
+    ]
+  },
+  "allowed_child_edges": [
+    {
+      "parent": "tickets",
+      "child": "notes",
+      "foreign_key": "ticket_id"
+    }
+  ]
+}
