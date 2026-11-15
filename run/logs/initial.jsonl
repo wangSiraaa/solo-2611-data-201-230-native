@@ -1,0 +1,11 @@
+{"command": "CAPABILITY", "args": ""}
+{"command": "LOGIN", "args": "demo credentials omitted"}
+{"command": "EXAMINE", "args": "INBOX"}
+{"command": "UID", "args": "SEARCH ALL"}
+{"command": "UID", "args": "FETCH 11,12,13 (UID FLAGS BODY.PEEK[])"}
+{"sent_uid": 11, "sequence": 1, "bytes": 47}
+{"sent_uid": 12, "sequence": 2, "bytes": 55}
+{"sent_uid": 13, "sequence": 3, "bytes": 57}
+{"command": "NOOP", "args": ""}
+{"command": "UID", "args": "SEARCH ALL"}
+{"command": "LOGOUT", "args": ""}

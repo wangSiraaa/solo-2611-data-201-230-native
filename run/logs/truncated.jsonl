@@ -1,0 +1,21 @@
+{"command": "CAPABILITY", "args": ""}
+{"command": "LOGIN", "args": "demo credentials omitted"}
+{"command": "EXAMINE", "args": "INBOX"}
+{"command": "UID", "args": "SEARCH ALL"}
+{"command": "UID", "args": "FETCH 11 (UID FLAGS BODY.PEEK[])"}
+{"truncated_uid": 11}
+{"connection_end": "EOFError"}
+{"command": "CAPABILITY", "args": ""}
+{"command": "LOGIN", "args": "demo credentials omitted"}
+{"command": "EXAMINE", "args": "INBOX"}
+{"command": "UID", "args": "SEARCH ALL"}
+{"command": "UID", "args": "FETCH 11 (UID FLAGS BODY.PEEK[])"}
+{"truncated_uid": 11}
+{"connection_end": "EOFError"}
+{"command": "CAPABILITY", "args": ""}
+{"command": "LOGIN", "args": "demo credentials omitted"}
+{"command": "EXAMINE", "args": "INBOX"}
+{"command": "UID", "args": "SEARCH ALL"}
+{"command": "UID", "args": "FETCH 11 (UID FLAGS BODY.PEEK[])"}
+{"truncated_uid": 11}
+{"connection_end": "EOFError"}

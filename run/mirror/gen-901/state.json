@@ -1,0 +1,23 @@
+{
+  "kind": "imap-mirror-generation",
+  "identity": {
+    "account": "demo",
+    "server": "127.0.0.1:11430",
+    "mailbox": "INBOX",
+    "uidvalidity": 901
+  },
+  "created_at": "2026-11-15T00:09:34.469+00:00",
+  "snapshot_seq": 1,
+  "updated_at": "2026-11-15T00:09:34.469+00:00",
+  "uids": {
+    "11": {
+      "status": "alive",
+      "digest": "sha256:696a4e067a961fb3f693f2a24aa0c655c7d5475e500ae9fe78194ee26490d7bd",
+      "size": 59,
+      "flags": [],
+      "original": "originals/11.eml",
+      "first_seen": "2026-11-15T00:09:34.469+00:00",
+      "last_confirmed": "2026-11-15T00:09:34.469+00:00"
+    }
+  }
+}

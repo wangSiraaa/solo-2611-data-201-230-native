@@ -1,0 +1,45 @@
+{
+  "kind": "imap-mirror-generation",
+  "identity": {
+    "account": "demo",
+    "server": "127.0.0.1:11430",
+    "mailbox": "INBOX",
+    "uidvalidity": 900
+  },
+  "created_at": "2026-11-15T00:09:33.880+00:00",
+  "snapshot_seq": 2,
+  "updated_at": "2026-11-15T00:09:34.176+00:00",
+  "uids": {
+    "12": {
+      "status": "alive",
+      "digest": "sha256:2fda6031de928e9d88ec128fdd90b25c3b710e2f5f23fb1c9d81b39972cd8223",
+      "size": 55,
+      "flags": [
+        "\\Flagged",
+        "\\Seen"
+      ],
+      "original": "originals/12.eml",
+      "first_seen": "2026-11-15T00:09:33.880+00:00",
+      "last_confirmed": "2026-11-15T00:09:34.176+00:00"
+    },
+    "13": {
+      "status": "alive",
+      "digest": "sha256:a7bfbeb0327860f353be131e9f47972edd613392dadd00dbf14e13b1d2f6cc12",
+      "size": 57,
+      "flags": [],
+      "original": "originals/13.eml",
+      "first_seen": "2026-11-15T00:09:33.880+00:00",
+      "last_confirmed": "2026-11-15T00:09:34.176+00:00"
+    },
+    "11": {
+      "status": "vanished",
+      "digest": "sha256:b3b1efb35888aca86366cf91764333f9dd6a28ea9babc022ec2e747bb9b6b109",
+      "size": 47,
+      "flags": [],
+      "original": "originals/11.eml",
+      "first_seen": "2026-11-15T00:09:33.880+00:00",
+      "last_confirmed": "2026-11-15T00:09:33.880+00:00",
+      "vanished_at": "2026-11-15T00:09:34.176+00:00"
+    }
+  }
+}

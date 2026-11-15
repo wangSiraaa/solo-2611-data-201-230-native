@@ -1,0 +1,26 @@
+{
+  "kind": "imap-mirror-export",
+  "exported_at": "2026-11-15T00:09:35.826+00:00",
+  "identity": {
+    "account": "demo",
+    "server": "127.0.0.1:11430",
+    "mailbox": "INBOX",
+    "uidvalidity": 901
+  },
+  "snapshot_id": 1,
+  "published_at": "2026-11-15T00:09:34.469+00:00",
+  "uid_set": [
+    11
+  ],
+  "entries": {
+    "11": {
+      "file": "messages/11.eml",
+      "digest": "sha256:696a4e067a961fb3f693f2a24aa0c655c7d5475e500ae9fe78194ee26490d7bd",
+      "size": 59,
+      "flags": []
+    }
+  },
+  "vanished": {},
+  "flags_changes": [],
+  "anomalies": []
+}

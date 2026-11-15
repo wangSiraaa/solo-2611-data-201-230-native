@@ -1,0 +1,55 @@
+{
+  "kind": "imap-mirror-export",
+  "exported_at": "2026-11-15T00:09:35.857+00:00",
+  "identity": {
+    "account": "demo",
+    "server": "127.0.0.1:11430",
+    "mailbox": "INBOX",
+    "uidvalidity": 900
+  },
+  "snapshot_id": 2,
+  "published_at": "2026-11-15T00:09:34.176+00:00",
+  "uid_set": [
+    12,
+    13
+  ],
+  "entries": {
+    "12": {
+      "file": "messages/12.eml",
+      "digest": "sha256:2fda6031de928e9d88ec128fdd90b25c3b710e2f5f23fb1c9d81b39972cd8223",
+      "size": 55,
+      "flags": [
+        "\\Flagged",
+        "\\Seen"
+      ]
+    },
+    "13": {
+      "file": "messages/13.eml",
+      "digest": "sha256:a7bfbeb0327860f353be131e9f47972edd613392dadd00dbf14e13b1d2f6cc12",
+      "size": 57,
+      "flags": []
+    }
+  },
+  "vanished": {
+    "11": {
+      "digest": "sha256:b3b1efb35888aca86366cf91764333f9dd6a28ea9babc022ec2e747bb9b6b109",
+      "size": 47,
+      "original": "originals/11.eml",
+      "last_flags": [],
+      "vanished_at": "2026-11-15T00:09:34.176+00:00"
+    }
+  },
+  "flags_changes": [
+    {
+      "uid": 12,
+      "old": [
+        "\\Seen"
+      ],
+      "new": [
+        "\\Flagged",
+        "\\Seen"
+      ]
+    }
+  ],
+  "anomalies": []
+}

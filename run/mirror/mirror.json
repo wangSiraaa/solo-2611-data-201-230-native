@@ -1,0 +1,28 @@
+{
+  "kind": "imap-mirror",
+  "account": "demo",
+  "server": "127.0.0.1:11430",
+  "mailbox": "INBOX",
+  "created_at": "2026-11-15T00:09:33.880+00:00",
+  "generations": {
+    "900": {
+      "created_at": "2026-11-15T00:09:33.880+00:00",
+      "snapshots": 2,
+      "updated_at": "2026-11-15T00:09:34.176+00:00"
+    },
+    "901": {
+      "created_at": "2026-11-15T00:09:34.469+00:00",
+      "snapshots": 1,
+      "updated_at": "2026-11-15T00:09:34.469+00:00"
+    }
+  },
+  "current_generation": 901,
+  "last_sync_at": "2026-11-15T00:09:35.531+00:00",
+  "last_sync_result": "failed",
+  "last_error": {
+    "at": "2026-11-15T00:09:35.531+00:00",
+    "type": "abort",
+    "message": "command: UID => socket error: EOF",
+    "uidvalidity": 900
+  }
+}
