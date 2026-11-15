@@ -1,16 +1,55 @@
 # 固定页数据文件的安全缓冲池
 
-本目录只包含任务输入和复现实验材料，不含待实现的工具。
+一个本地数据文件访问层需要缓存固定页，调用者借出页期间不能被替换，脏页写回失败也不能丢掉内存修改。本实现使用 Python 3.11，`page_io.py` 仍是唯一的磁盘读写后端（128 字节页、8 页输入、可注入写失败）。
 
-一个本地数据文件访问层需要缓存固定页，调用者借出页期间不能被替换，脏页写回失败也不能丢掉内存修改。请用Python 3.11实现BufferPool及运行fixtures/scenarios.json的演示入口。page_io.py只提供128字节页的磁盘读写和失败注入；输入pages.bin有八页。核心缓存和句柄管理由你完成，不做B+树、SQL、WAL或崩溃恢复。
-BufferPool容量以页帧数给定。fetch(page_id)返回独立handle，同一页再次fetch应命中同一驻留帧并增加pin数。read/write只接受仍有效的handle和页内范围，write后自动标记dirty；release只释放该handle一次，后续对它的读写或重复release都报错。不能把可被调用者长期保存的裸可变bytearray当handle返回，从而绕过pin和失效检查。
-只允许驱逐pin=0的帧，以最近一次成功fetch的全局序号选择最久未使用者；命中也更新序号，read/write不更新。全部帧被pin时fetch立即返回明确的all_pinned，不偷偷增容或替换正在借用的页。不同handle指向同一页时应立即看到彼此已完成的修改。
-驱逐dirty帧必须先成功写回再改变它的页身份；注入写失败时保留原驻留页、dirty标记和全部数据，fetch新页失败，之后仍能重新fetch旧页并重试。成功替换后任何已失效旧handle也不能误写新页。flush_all仅刷pin=0的dirty页，报告仍被pin的跳过页；写回成功才清dirty。关闭时存在pin则拒绝，全部释放后刷完脏页再关闭。
-在每个现成场景开始前复制输入文件，记录页读写、缓存命中、驱逐、pin和错误结果。独立核对修改字节最终落在正确页，重复fetch不重复读盘，未修改页不写盘，失败写回后数据仍在且重试成功。补充页号越界、页内越界、重复release和关闭有pin的案例。单线程串行操作即可，不引入并发锁、后台刷盘或文件掉电持久化承诺；交付源码、API说明和逐步可运行示例。
+## 交付内容
 
-输入清单：
+| 文件 | 说明 |
+| --- | --- |
+| `buffer_pool.py` | `BufferPool`、不透明 `PageHandle`、错误类型、`FlushReport`/`CloseReport` |
+| `demo.py` | 运行 `fixtures/scenarios.json` 及内置边界场景，独立核对结果 |
+| `example.py` | 逐步可运行的讲解示例 |
+| `API.md` | API 说明、错误码、行为保证与非目标 |
+| `tests/test_buffer_pool.py` | 单元测试（约 35 项） |
+
+## 快速开始
+
+```bash
+python3 demo.py                # 3 个现成场景 + 8 个补充场景，全部检查
+python3 demo.py --verbose      # 显示每个操作的记录
+python3 demo.py --json         # 机器可读输出（摘要走 stderr）
+python3 example.py             # 分步讲解（使用临时副本）
+python3 -m unittest discover -s tests -v
+```
+
+每次运行会把每个场景的操作记录、池事件、`PageIO` 事件、统计和检查结果写到
+`out/demo-reports/<scenario>.json`（`--report-dir` 可改）。
+
+每个场景开始前都会把 `fixtures/pages.bin` 复制到独立临时文件；场景结束后演示器**独立读取结果文件**逐页核对字节，并用池事件与 `PageIO` 事件核对：
+
+- 修改过的字节最终落在正确页；
+- 同一页未被驱逐时不会重复读盘；
+- 未修改的页不会被写盘；
+- 写回失败后页仍驻留、仍 dirty、数据完整，之后重试成功；
+- 已失效的旧句柄无法写坏新页。
+
+## 核心语义一览
+
+- `fetch(page_id)` 返回独立句柄；同页再次 fetch 命中同一驻留帧并增加 pin。
+- 句柄不暴露可变 `bytearray`；release 后、被驱逐后或跨池使用时读写与重复 release 均报 `invalid_handle`。
+- 只驱逐 `pin == 0` 的帧，按最近一次成功 fetch 的全局序号做 LRU；命中也更新序号，read/write 不更新。全部帧被 pin 时立即抛 `all_pinned`，不增容、不替换。
+- 驱逐 dirty 帧先成功写回再改变页身份；写失败保留原页、dirty 与全部数据，且新页不加载。
+- `flush_all()` 只刷 unpinned dirty 页，报告 `skipped_pinned`，写回成功才清 dirty。
+- `close()` 有 pin 时拒绝；全部释放后刷完脏页再关闭。写回失败会保持打开以便重试。
+- 单线程串行；不含并发锁、后台刷盘、WAL 或崩溃/掉电恢复保证。
+
+详细的 API、错误码与行为说明见 `API.md`。
+
+## 输入清单（原始材料）
+
 - `fixtures/pages.bin`
 - `fixtures/scenarios.json`
 - `page_io.py`
 
 运行环境为 Python 3.11。
+
