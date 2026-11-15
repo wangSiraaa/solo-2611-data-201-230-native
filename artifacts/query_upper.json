@@ -1,0 +1,42 @@
+{
+  "rect": {
+    "x": [
+      254,
+      256
+    ],
+    "y": [
+      254,
+      256
+    ]
+  },
+  "max_intervals": 8,
+  "candidate_intervals": [
+    [
+      65532,
+      65536
+    ]
+  ],
+  "blocks_total": 15,
+  "blocks_opened": [
+    14
+  ],
+  "read_log": [
+    {
+      "block_id": 14,
+      "path": "blocks/block-0014.jsonl",
+      "rows_read": 2,
+      "candidate_rows": 1
+    }
+  ],
+  "candidate_rows_total": 1,
+  "result_rows": 1,
+  "results": [
+    {
+      "row_id": "max",
+      "x": 255,
+      "y": 255,
+      "value": 0
+    }
+  ],
+  "query_id": "upper"
+}

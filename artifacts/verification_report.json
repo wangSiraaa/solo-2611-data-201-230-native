@@ -1,0 +1,428 @@
+{
+  "store": "/workspace/store",
+  "source": "/workspace/fixtures/points.jsonl",
+  "budgets_tested": [
+    1,
+    2,
+    3,
+    4,
+    8,
+    16,
+    64,
+    1024
+  ],
+  "random_seed": 20261115,
+  "random_rects": 306,
+  "checks": [
+    {
+      "name": "morton_roundtrip_all_65536",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "morton_bit_order",
+      "pass": true,
+      "detail": {
+        "enc(1,0)": 1,
+        "enc(0,1)": 2
+      }
+    },
+    {
+      "name": "store_verify",
+      "pass": true,
+      "detail": {
+        "ok": true,
+        "blocks": 15,
+        "total_rows": 226,
+        "code_min": 0,
+        "code_max": 65535
+      }
+    },
+    {
+      "name": "fixture_query[tiny]_all_budgets_match_oracle",
+      "pass": true,
+      "detail": {
+        "rect": [
+          0,
+          20,
+          0,
+          20
+        ],
+        "per_budget": {
+          "1": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "2": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "3": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "4": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "8": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "16": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "64": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          },
+          "1024": {
+            "match_oracle": true,
+            "result_rows": 5,
+            "blocks_opened": 1
+          }
+        },
+        "coverage_failures": [],
+        "sanity_failures": [],
+        "exact_cover_failures": []
+      }
+    },
+    {
+      "name": "fixture_query[cross]_all_budgets_match_oracle",
+      "pass": true,
+      "detail": {
+        "rect": [
+          120,
+          140,
+          10,
+          210
+        ],
+        "per_budget": {
+          "1": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 12
+          },
+          "2": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          },
+          "3": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          },
+          "4": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          },
+          "8": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          },
+          "16": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          },
+          "64": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          },
+          "1024": {
+            "match_oracle": true,
+            "result_rows": 11,
+            "blocks_opened": 11
+          }
+        },
+        "coverage_failures": [],
+        "sanity_failures": [],
+        "exact_cover_failures": []
+      }
+    },
+    {
+      "name": "fixture_query[upper]_all_budgets_match_oracle",
+      "pass": true,
+      "detail": {
+        "rect": [
+          254,
+          256,
+          254,
+          256
+        ],
+        "per_budget": {
+          "1": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "2": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "3": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "4": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "8": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "16": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "64": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          },
+          "1024": {
+            "match_oracle": true,
+            "result_rows": 1,
+            "blocks_opened": 1
+          }
+        },
+        "coverage_failures": [],
+        "sanity_failures": [],
+        "exact_cover_failures": []
+      }
+    },
+    {
+      "name": "fixture_query[empty]_all_budgets_match_oracle",
+      "pass": true,
+      "detail": {
+        "rect": [
+          5,
+          5,
+          0,
+          256
+        ],
+        "per_budget": {
+          "1": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "2": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "3": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "4": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "8": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "16": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "64": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          },
+          "1024": {
+            "match_oracle": true,
+            "result_rows": 0,
+            "blocks_opened": 0
+          }
+        },
+        "coverage_failures": [],
+        "sanity_failures": [],
+        "exact_cover_failures": []
+      }
+    },
+    {
+      "name": "fixture_query[full]_all_budgets_match_oracle",
+      "pass": true,
+      "detail": {
+        "rect": [
+          0,
+          256,
+          0,
+          256
+        ],
+        "per_budget": {
+          "1": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "2": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "3": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "4": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "8": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "16": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "64": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          },
+          "1024": {
+            "match_oracle": true,
+            "result_rows": 226,
+            "blocks_opened": 15
+          }
+        },
+        "coverage_failures": [],
+        "sanity_failures": [],
+        "exact_cover_failures": []
+      }
+    },
+    {
+      "name": "budget_invariance_fixture_queries",
+      "pass": true,
+      "detail": {
+        "tiny": true,
+        "cross": true,
+        "upper": true,
+        "empty": true,
+        "full": true
+      }
+    },
+    {
+      "name": "random_rects_seed20261115_n306_x4budgets",
+      "pass": true,
+      "detail": {
+        "failures": [],
+        "rects": 306
+      }
+    },
+    {
+      "name": "tiny_query_reads_fewer_blocks",
+      "pass": true,
+      "detail": {
+        "blocks_opened": 1,
+        "blocks_total": 15,
+        "read_log": [
+          {
+            "block_id": 0,
+            "path": "blocks/block-0000.jsonl",
+            "rows_read": 16,
+            "candidate_rows": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "duplicate_coordinate_identity_(0,0)",
+      "pass": true,
+      "detail": {
+        "returned": [
+          "origin-second",
+          "p000-000"
+        ]
+      }
+    },
+    {
+      "name": "empty_query_opens_nothing",
+      "pass": true,
+      "detail": {
+        "blocks_opened": []
+      }
+    },
+    {
+      "name": "corruption_bitflip_fails_clearly",
+      "pass": true,
+      "detail": "CorruptBlockError: 块 1: sha256 不匹配（文件 39b8b8fd3b49… != 目录 2957b7960490…），块已损坏或目录被篡改: /tmp/tmplhtjfpik/flip/blocks/block-0001.jsonl"
+    },
+    {
+      "name": "corruption_swapped_blocks_fail_clearly",
+      "pass": true,
+      "detail": "CorruptBlockError: 块 0: sha256 不匹配（文件 2957b7960490… != 目录 4af077000ec5…），块已损坏或目录被篡改: /tmp/tmplhtjfpik/swap/blocks/block-0000.jsonl"
+    },
+    {
+      "name": "tampered_directory_binding_fails",
+      "pass": true,
+      "detail": {
+        "verify": "CorruptBlockError: 块 0: 目录码界限 [1,3718] 与实际 [0,3718] 不符（索引绑定失败）",
+        "query": "CorruptBlockError: 块 0: 目录码界限 [1,3718] 与实际 [0,3718] 不符（索引绑定失败）"
+      }
+    },
+    {
+      "name": "build_input_validation",
+      "pass": true,
+      "detail": {
+        "duplicate_row_id": {
+          "rejected": true,
+          "error": "BuildError: row_id 重复: 'a'（第 1 行与第 2 行）"
+        },
+        "x_out_of_range_256": {
+          "rejected": true,
+          "error": "BuildError: 第 1 行 x 越界或非整数: 256（允许 0..255）"
+        },
+        "x_negative": {
+          "rejected": true,
+          "error": "BuildError: 第 1 行 x 越界或非整数: -1（允许 0..255）"
+        },
+        "bool_coordinate": {
+          "rejected": true,
+          "error": "BuildError: 第 1 行 x 越界或非整数: True（允许 0..255）"
+        },
+        "non_integer_value": {
+          "rejected": true,
+          "error": "BuildError: 第 1 行 value 必须是整数: 1.5"
+        },
+        "missing_field": {
+          "rejected": true,
+          "error": "BuildError: 第 1 行缺字段: ['value']"
+        }
+      }
+    }
+  ],
+  "all_pass": true
+}

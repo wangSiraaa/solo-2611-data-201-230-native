@@ -1,0 +1,200 @@
+{
+  "rect": {
+    "x": [
+      120,
+      140
+    ],
+    "y": [
+      10,
+      210
+    ]
+  },
+  "max_intervals": 8,
+  "candidate_intervals": [
+    [
+      5576,
+      8192
+    ],
+    [
+      13632,
+      19184
+    ],
+    [
+      24576,
+      27376
+    ],
+    [
+      38208,
+      38912
+    ],
+    [
+      40256,
+      40960
+    ],
+    [
+      46400,
+      46936
+    ],
+    [
+      49152,
+      51952
+    ],
+    [
+      57344,
+      57928
+    ]
+  ],
+  "blocks_total": 15,
+  "blocks_opened": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "read_log": [
+    {
+      "block_id": 1,
+      "path": "blocks/block-0001.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 9
+    },
+    {
+      "block_id": 2,
+      "path": "blocks/block-0002.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 1
+    },
+    {
+      "block_id": 3,
+      "path": "blocks/block-0003.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 14
+    },
+    {
+      "block_id": 4,
+      "path": "blocks/block-0004.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 4
+    },
+    {
+      "block_id": 5,
+      "path": "blocks/block-0005.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 7
+    },
+    {
+      "block_id": 6,
+      "path": "blocks/block-0006.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 2
+    },
+    {
+      "block_id": 8,
+      "path": "blocks/block-0008.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 4
+    },
+    {
+      "block_id": 9,
+      "path": "blocks/block-0009.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 2
+    },
+    {
+      "block_id": 10,
+      "path": "blocks/block-0010.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 8
+    },
+    {
+      "block_id": 11,
+      "path": "blocks/block-0011.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 4
+    },
+    {
+      "block_id": 12,
+      "path": "blocks/block-0012.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 1
+    }
+  ],
+  "candidate_rows_total": 56,
+  "result_rows": 11,
+  "results": [
+    {
+      "row_id": "p136-019",
+      "x": 136,
+      "y": 19,
+      "value": 136019
+    },
+    {
+      "row_id": "p136-038",
+      "x": 136,
+      "y": 38,
+      "value": 136038
+    },
+    {
+      "row_id": "p136-057",
+      "x": 136,
+      "y": 57,
+      "value": 136057
+    },
+    {
+      "row_id": "p136-076",
+      "x": 136,
+      "y": 76,
+      "value": 136076
+    },
+    {
+      "row_id": "p136-095",
+      "x": 136,
+      "y": 95,
+      "value": 136095
+    },
+    {
+      "row_id": "p136-114",
+      "x": 136,
+      "y": 114,
+      "value": 136114
+    },
+    {
+      "row_id": "p136-133",
+      "x": 136,
+      "y": 133,
+      "value": 136133
+    },
+    {
+      "row_id": "p136-152",
+      "x": 136,
+      "y": 152,
+      "value": 136152
+    },
+    {
+      "row_id": "p136-171",
+      "x": 136,
+      "y": 171,
+      "value": 136171
+    },
+    {
+      "row_id": "p136-190",
+      "x": 136,
+      "y": 190,
+      "value": 136190
+    },
+    {
+      "row_id": "p136-209",
+      "x": 136,
+      "y": 209,
+      "value": 136209
+    }
+  ],
+  "query_id": "cross"
+}

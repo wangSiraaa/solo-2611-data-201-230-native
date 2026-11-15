@@ -1,0 +1,21 @@
+{
+  "rect": {
+    "x": [
+      5,
+      5
+    ],
+    "y": [
+      0,
+      256
+    ]
+  },
+  "max_intervals": 8,
+  "candidate_intervals": [],
+  "blocks_total": 15,
+  "blocks_opened": [],
+  "read_log": [],
+  "candidate_rows_total": 0,
+  "result_rows": 0,
+  "results": [],
+  "query_id": "empty"
+}

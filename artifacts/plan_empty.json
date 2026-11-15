@@ -1,0 +1,34 @@
+{
+  "rect": {
+    "x": [
+      5,
+      5
+    ],
+    "y": [
+      0,
+      256
+    ]
+  },
+  "clamped_rect": {
+    "x": [
+      5,
+      5
+    ],
+    "y": [
+      0,
+      256
+    ]
+  },
+  "empty": true,
+  "max_intervals": 8,
+  "decomposition": {
+    "method": "矩形与 256×256 整数域四叉网格相交；完全包含的胞格输出为一个 左闭右开码区间 [prefix, prefix+4^(8-level))，相邻码连续区间精确合并",
+    "exact_intervals": [],
+    "exact_count": 0
+  },
+  "merge_log": [],
+  "candidate_intervals": [],
+  "selected_blocks": [],
+  "blocks_total": 15,
+  "query_id": "empty"
+}

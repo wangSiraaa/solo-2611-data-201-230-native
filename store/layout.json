@@ -1,0 +1,138 @@
+{
+  "format_version": 1,
+  "bits_per_axis": 8,
+  "block_rows": 16,
+  "default_max_intervals": 8,
+  "code_min": 0,
+  "code_max": 65535,
+  "summary": {
+    "total_rows": 226,
+    "num_blocks": 15,
+    "source_path": "/workspace/fixtures/points.jsonl",
+    "source_sha256": "0f7ccb5a04f6984b63a29e7afc0055213c420b127bcf524ff5b273535ab78169",
+    "sort_key": "(morton_code, row_id utf-8 bytes)",
+    "morton": "16-bit, bit0=x0, bit1=y0, ... interleaved"
+  },
+  "directory": [
+    {
+      "block_id": 0,
+      "path": "blocks/block-0000.jsonl",
+      "rows": 16,
+      "code_min": 0,
+      "code_max": 3718,
+      "sha256": "4af077000ec5dee0c873d0d2c70aa86dcaf4596b78d9812eed150f5b20083551"
+    },
+    {
+      "block_id": 1,
+      "path": "blocks/block-0001.jsonl",
+      "rows": 16,
+      "code_min": 3975,
+      "code_max": 7830,
+      "sha256": "2957b7960490c30c71bf7f1c490eb8378799ba5da279e27686f179bf26264ea3"
+    },
+    {
+      "block_id": 2,
+      "path": "blocks/block-0002.jsonl",
+      "rows": 16,
+      "code_min": 8087,
+      "code_max": 12986,
+      "sha256": "f511e5c909c2b645011bf40b4ad17b76d8657037561609183ecb2e7eeda866d7"
+    },
+    {
+      "block_id": 3,
+      "path": "blocks/block-0003.jsonl",
+      "rows": 16,
+      "code_min": 13243,
+      "code_max": 17998,
+      "sha256": "024e51799cae4081ba39e02235ed1a899f37b227f4a8624d240a3b5bf34b77e5"
+    },
+    {
+      "block_id": 4,
+      "path": "blocks/block-0004.jsonl",
+      "rows": 16,
+      "code_min": 18255,
+      "code_max": 22110,
+      "sha256": "1ed621ba89e479964a3c84ab022f8bc233d700be171fd7aeb6291b3a00b0bff3"
+    },
+    {
+      "block_id": 5,
+      "path": "blocks/block-0005.jsonl",
+      "rows": 16,
+      "code_min": 22367,
+      "code_max": 26350,
+      "sha256": "07bb1fdcb8a9f35484c039fc5e2604fe66cb5f096bdfc3e2853efa0dc429a036"
+    },
+    {
+      "block_id": 6,
+      "path": "blocks/block-0006.jsonl",
+      "rows": 16,
+      "code_min": 26607,
+      "code_max": 32348,
+      "sha256": "9f9708d49d3b5260d21834cf3f5b68846143ed1f63e23cb266135a1c6ecf256a"
+    },
+    {
+      "block_id": 7,
+      "path": "blocks/block-0007.jsonl",
+      "rows": 16,
+      "code_min": 32605,
+      "code_max": 36524,
+      "sha256": "0ed51f5629f4aa6f81665b175c7f2da5b05862f77154d7675b1779dcd9872c30"
+    },
+    {
+      "block_id": 8,
+      "path": "blocks/block-0008.jsonl",
+      "rows": 16,
+      "code_min": 36781,
+      "code_max": 40636,
+      "sha256": "ce16d88400c50b31a73eb2cebdfaf0766bb5e8a9b0b6d010ec70192284eb8e2b"
+    },
+    {
+      "block_id": 9,
+      "path": "blocks/block-0009.jsonl",
+      "rows": 16,
+      "code_min": 40893,
+      "code_max": 46614,
+      "sha256": "22bd02f8c5b764af113c63ff4201e10809d3e3c9b449c1b23f73431b5a11f346"
+    },
+    {
+      "block_id": 10,
+      "path": "blocks/block-0010.jsonl",
+      "rows": 16,
+      "code_min": 46871,
+      "code_max": 50884,
+      "sha256": "64e44751b014d5f2b9a2e789be765a38334cdb68ba7ef7dd2ab6e34f4be4b2a6"
+    },
+    {
+      "block_id": 11,
+      "path": "blocks/block-0011.jsonl",
+      "rows": 16,
+      "code_min": 51141,
+      "code_max": 54996,
+      "sha256": "7abe03977c43613bab171949c0991e1afab9a780bdf642476fd583abf85a850a"
+    },
+    {
+      "block_id": 12,
+      "path": "blocks/block-0012.jsonl",
+      "rows": 16,
+      "code_min": 55253,
+      "code_max": 60010,
+      "sha256": "8e8a1cbcfbf720e7aef07dd1fff4192346589832d61d3dd4b4da2e8f2dabcc9e"
+    },
+    {
+      "block_id": 13,
+      "path": "blocks/block-0013.jsonl",
+      "rows": 16,
+      "code_min": 60267,
+      "code_max": 65150,
+      "sha256": "35a619e98830d95fb72d631eb457f8672b860e3fa6f56afc268c0691adc480e0"
+    },
+    {
+      "block_id": 14,
+      "path": "blocks/block-0014.jsonl",
+      "rows": 2,
+      "code_min": 65407,
+      "code_max": 65535,
+      "sha256": "f119edd866f453e45725eb5042b1c5e9d024c5cf16ae3b2c8f0ef09026b68119"
+    }
+  ]
+}

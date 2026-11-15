@@ -1,0 +1,90 @@
+{
+  "rect": {
+    "x": [
+      0,
+      20
+    ],
+    "y": [
+      0,
+      20
+    ]
+  },
+  "max_intervals": 8,
+  "candidate_intervals": [
+    [
+      0,
+      272
+    ],
+    [
+      288,
+      304
+    ],
+    [
+      384,
+      400
+    ],
+    [
+      416,
+      432
+    ],
+    [
+      512,
+      544
+    ],
+    [
+      576,
+      608
+    ],
+    [
+      768,
+      784
+    ]
+  ],
+  "blocks_total": 15,
+  "blocks_opened": [
+    0
+  ],
+  "read_log": [
+    {
+      "block_id": 0,
+      "path": "blocks/block-0000.jsonl",
+      "rows_read": 16,
+      "candidate_rows": 5
+    }
+  ],
+  "candidate_rows_total": 5,
+  "result_rows": 5,
+  "results": [
+    {
+      "row_id": "origin-second",
+      "x": 0,
+      "y": 0,
+      "value": -1
+    },
+    {
+      "row_id": "p000-000",
+      "x": 0,
+      "y": 0,
+      "value": 0
+    },
+    {
+      "row_id": "p000-019",
+      "x": 0,
+      "y": 19,
+      "value": 19
+    },
+    {
+      "row_id": "p017-000",
+      "x": 17,
+      "y": 0,
+      "value": 17000
+    },
+    {
+      "row_id": "p017-019",
+      "x": 17,
+      "y": 19,
+      "value": 17019
+    }
+  ],
+  "query_id": "tiny"
+}
