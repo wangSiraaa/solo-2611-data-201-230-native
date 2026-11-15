@@ -1,0 +1,47 @@
+{
+  "outer_table": "outer_rows",
+  "outer_order": "row_id",
+  "batch_size": 7,
+  "expressions": [
+    {
+      "as": "has_payments",
+      "op": "exists",
+      "inner_table": "payments",
+      "correlate": {
+        "inner": "customer_id",
+        "outer": "customer_id"
+      }
+    },
+    {
+      "as": "in_codes",
+      "op": "in",
+      "outer_value": "probe",
+      "inner_value": "code",
+      "inner_table": "payments",
+      "correlate": {
+        "inner": "customer_id",
+        "outer": "customer_id"
+      }
+    },
+    {
+      "as": "not_in_codes",
+      "op": "not_in",
+      "outer_value": "probe",
+      "inner_value": "code",
+      "inner_table": "payments",
+      "correlate": {
+        "inner": "customer_id",
+        "outer": "customer_id"
+      }
+    },
+    {
+      "as": "has_flags",
+      "op": "exists",
+      "inner_table": "flags",
+      "correlate": {
+        "inner": "customer_id",
+        "outer": "customer_id"
+      }
+    }
+  ]
+}
