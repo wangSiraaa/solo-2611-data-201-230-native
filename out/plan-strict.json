@@ -1,0 +1,545 @@
+{
+  "plan_format": 1,
+  "tool": "routecopy",
+  "created_utc": "2026-11-15T08:21:50.949916+00:00",
+  "parent": "route_fixture.strict",
+  "parent_oid": 17088,
+  "config": {
+    "batch_rows": 3,
+    "supported_types": [
+      "bigint",
+      "integer",
+      "text"
+    ],
+    "max_partition_depth": 2
+  },
+  "input": {
+    "path": "fixtures/rows.jsonl",
+    "sha256": "bbc1d5a8fc68f59e3de82aead6a1399456e7d9441a036fee104344269feb549d",
+    "row_count": 8
+  },
+  "catalog_fingerprint": "912273ac57aac2fb7651a60428f5d04bb0e6f05d678a934aeb68cc3da222a162",
+  "columns": [
+    {
+      "attnum": 1,
+      "name": "row_id",
+      "type": "int8",
+      "kind": "int",
+      "notnull": true
+    },
+    {
+      "attnum": 2,
+      "name": "tenant",
+      "type": "text",
+      "kind": "text",
+      "notnull": false
+    },
+    {
+      "attnum": 3,
+      "name": "day_seq",
+      "type": "int4",
+      "kind": "int",
+      "notnull": false
+    },
+    {
+      "attnum": 4,
+      "name": "slot",
+      "type": "int4",
+      "kind": "int",
+      "notnull": false
+    },
+    {
+      "attnum": 5,
+      "name": "value",
+      "type": "int4",
+      "kind": "int",
+      "notnull": false
+    }
+  ],
+  "partitions": [
+    {
+      "oid": 17088,
+      "name": "route_fixture.strict",
+      "level": 0,
+      "parent_oid": null,
+      "relkind": "p",
+      "strategy": "list",
+      "key": [
+        {
+          "attnum": 2,
+          "name": "tenant",
+          "type": "text",
+          "kind": "text",
+          "collation": "C"
+        }
+      ],
+      "bound": null,
+      "bound_text": null
+    },
+    {
+      "oid": 17092,
+      "name": "route_fixture.strict_east",
+      "level": 1,
+      "parent_oid": 17088,
+      "relkind": "p",
+      "strategy": "range",
+      "key": [
+        {
+          "attnum": 3,
+          "name": "day_seq",
+          "type": "int4",
+          "kind": "int",
+          "collation": null
+        },
+        {
+          "attnum": 4,
+          "name": "slot",
+          "type": "int4",
+          "kind": "int",
+          "collation": null
+        }
+      ],
+      "bound": {
+        "kind": "list",
+        "values": [
+          "east"
+        ]
+      },
+      "bound_text": "FOR VALUES IN ('east')"
+    },
+    {
+      "oid": 17096,
+      "name": "route_fixture.strict_mid",
+      "level": 2,
+      "parent_oid": 17092,
+      "relkind": "r",
+      "strategy": null,
+      "key": [],
+      "bound": {
+        "kind": "range",
+        "lower": [
+          {
+            "t": "value",
+            "v": 10
+          },
+          {
+            "t": "value",
+            "v": 0
+          }
+        ],
+        "upper": [
+          {
+            "t": "value",
+            "v": 20
+          },
+          {
+            "t": "value",
+            "v": 0
+          }
+        ]
+      },
+      "bound_text": "FOR VALUES FROM (10, 0) TO (20, 0)"
+    }
+  ],
+  "accepted": [
+    {
+      "line": 3,
+      "row": {
+        "row_id": 3,
+        "tenant": "east",
+        "day_seq": 10,
+        "slot": 0,
+        "value": 30
+      },
+      "leaf": "route_fixture.strict_mid",
+      "leaf_oid": 17096,
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "east"
+          },
+          "decision": "matched",
+          "basis": "LIST 键 tenant='east':命中 strict_east 的 IN ('east')(text 按 C collation 逐字节判等)",
+          "next": "route_fixture.strict_east"
+        },
+        {
+          "level": 2,
+          "node": "route_fixture.strict_east",
+          "node_oid": 17092,
+          "strategy": "range",
+          "key_columns": [
+            {
+              "name": "day_seq",
+              "type": "int4"
+            },
+            {
+              "name": "slot",
+              "type": "int4"
+            }
+          ],
+          "key_values": {
+            "day_seq": 10,
+            "slot": 0
+          },
+          "candidates": [
+            {
+              "partition": "route_fixture.strict_mid",
+              "bound": "FROM (10, 0) TO (20, 0)",
+              "lower_ok": true,
+              "lower_note": "各列与边界逐列相等",
+              "upper_ok": true,
+              "upper_note": "列 day_seq: 10 < 边界值 20",
+              "matched": true
+            }
+          ],
+          "decision": "matched",
+          "basis": "RANGE 键 (day_seq=10, slot=0):按词典序与 strict_mid 边界 FROM (10, 0) TO (20, 0) 比较,≥ 下界且 < 上界(左闭右开)→ 命中",
+          "next": "route_fixture.strict_mid"
+        }
+      ]
+    },
+    {
+      "line": 8,
+      "row": {
+        "row_id": 8,
+        "tenant": "east",
+        "day_seq": 19,
+        "slot": 999,
+        "value": 80
+      },
+      "leaf": "route_fixture.strict_mid",
+      "leaf_oid": 17096,
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "east"
+          },
+          "decision": "matched",
+          "basis": "LIST 键 tenant='east':命中 strict_east 的 IN ('east')(text 按 C collation 逐字节判等)",
+          "next": "route_fixture.strict_east"
+        },
+        {
+          "level": 2,
+          "node": "route_fixture.strict_east",
+          "node_oid": 17092,
+          "strategy": "range",
+          "key_columns": [
+            {
+              "name": "day_seq",
+              "type": "int4"
+            },
+            {
+              "name": "slot",
+              "type": "int4"
+            }
+          ],
+          "key_values": {
+            "day_seq": 19,
+            "slot": 999
+          },
+          "candidates": [
+            {
+              "partition": "route_fixture.strict_mid",
+              "bound": "FROM (10, 0) TO (20, 0)",
+              "lower_ok": true,
+              "lower_note": "列 day_seq: 19 > 边界值 10",
+              "upper_ok": true,
+              "upper_note": "列 day_seq: 19 < 边界值 20",
+              "matched": true
+            }
+          ],
+          "decision": "matched",
+          "basis": "RANGE 键 (day_seq=19, slot=999):按词典序与 strict_mid 边界 FROM (10, 0) TO (20, 0) 比较,≥ 下界且 < 上界(左闭右开)→ 命中",
+          "next": "route_fixture.strict_mid"
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "line": 1,
+      "row": {
+        "row_id": 1,
+        "tenant": "east",
+        "day_seq": 9,
+        "slot": 999,
+        "value": 10
+      },
+      "reason": "no_matching_partition",
+      "detail": "第 2 层 route_fixture.strict_east: 无 RANGE 分区覆盖且无 DEFAULT",
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "east"
+          },
+          "decision": "matched",
+          "basis": "LIST 键 tenant='east':命中 strict_east 的 IN ('east')(text 按 C collation 逐字节判等)",
+          "next": "route_fixture.strict_east"
+        },
+        {
+          "level": 2,
+          "node": "route_fixture.strict_east",
+          "node_oid": 17092,
+          "strategy": "range",
+          "key_columns": [
+            {
+              "name": "day_seq",
+              "type": "int4"
+            },
+            {
+              "name": "slot",
+              "type": "int4"
+            }
+          ],
+          "key_values": {
+            "day_seq": 9,
+            "slot": 999
+          },
+          "candidates": [
+            {
+              "partition": "route_fixture.strict_mid",
+              "bound": "FROM (10, 0) TO (20, 0)",
+              "lower_ok": false,
+              "lower_note": "列 day_seq: 9 < 边界值 10",
+              "upper_ok": true,
+              "upper_note": "列 day_seq: 9 < 边界值 20",
+              "matched": false
+            }
+          ],
+          "decision": "no_match",
+          "basis": "RANGE 键 (day_seq=9, slot=999):逐边界词典序比较后不被任何非 DEFAULT 分区覆盖(见 candidates),且同层无 DEFAULT → 无目的地",
+          "next": null
+        }
+      ]
+    },
+    {
+      "line": 2,
+      "row": {
+        "row_id": 2,
+        "tenant": "west",
+        "day_seq": 10,
+        "slot": -1,
+        "value": 20
+      },
+      "reason": "no_matching_partition",
+      "detail": "第 1 层 route_fixture.strict: 无匹配分区且无 DEFAULT",
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "west"
+          },
+          "decision": "no_match",
+          "basis": "LIST 键 tenant='west':未命中任何非 DEFAULT 列表(IN ('east');text 按 C collation 逐字节判等),且同层无 DEFAULT 分区 → 无目的地",
+          "next": null
+        }
+      ]
+    },
+    {
+      "line": 4,
+      "row": {
+        "row_id": 4,
+        "tenant": "west",
+        "day_seq": 20,
+        "slot": 0,
+        "value": 40
+      },
+      "reason": "no_matching_partition",
+      "detail": "第 1 层 route_fixture.strict: 无匹配分区且无 DEFAULT",
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "west"
+          },
+          "decision": "no_match",
+          "basis": "LIST 键 tenant='west':未命中任何非 DEFAULT 列表(IN ('east');text 按 C collation 逐字节判等),且同层无 DEFAULT 分区 → 无目的地",
+          "next": null
+        }
+      ]
+    },
+    {
+      "line": 5,
+      "row": {
+        "row_id": 5,
+        "tenant": "east",
+        "day_seq": null,
+        "slot": 2,
+        "value": 50
+      },
+      "reason": "no_matching_partition",
+      "detail": "第 2 层 route_fixture.strict_east: RANGE 键含 NULL 且无 DEFAULT",
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "east"
+          },
+          "decision": "matched",
+          "basis": "LIST 键 tenant='east':命中 strict_east 的 IN ('east')(text 按 C collation 逐字节判等)",
+          "next": "route_fixture.strict_east"
+        },
+        {
+          "level": 2,
+          "node": "route_fixture.strict_east",
+          "node_oid": 17092,
+          "strategy": "range",
+          "key_columns": [
+            {
+              "name": "day_seq",
+              "type": "int4"
+            },
+            {
+              "name": "slot",
+              "type": "int4"
+            }
+          ],
+          "key_values": {
+            "day_seq": null,
+            "slot": 2
+          },
+          "decision": "no_match",
+          "basis": "RANGE 键 (day_seq=NULL, slot=2) 含 NULL:按 PostgreSQL 规则只能进入 DEFAULT 分区,但同层无 DEFAULT → 无目的地",
+          "next": null
+        }
+      ]
+    },
+    {
+      "line": 6,
+      "row": {
+        "row_id": 6,
+        "tenant": null,
+        "day_seq": 15,
+        "slot": 1,
+        "value": 60
+      },
+      "reason": "no_matching_partition",
+      "detail": "第 1 层 route_fixture.strict: 无匹配分区且无 DEFAULT",
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": null
+          },
+          "decision": "no_match",
+          "basis": "LIST 键 tenant=NULL:未命中任何非 DEFAULT 列表(IN ('east');text 按 C collation 逐字节判等),且同层无 DEFAULT 分区 → 无目的地",
+          "next": null
+        }
+      ]
+    },
+    {
+      "line": 7,
+      "row": {
+        "row_id": 7,
+        "tenant": "else",
+        "day_seq": 15,
+        "slot": 1,
+        "value": 70
+      },
+      "reason": "no_matching_partition",
+      "detail": "第 1 层 route_fixture.strict: 无匹配分区且无 DEFAULT",
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.strict",
+          "node_oid": 17088,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "else"
+          },
+          "decision": "no_match",
+          "basis": "LIST 键 tenant='else':未命中任何非 DEFAULT 列表(IN ('east');text 按 C collation 逐字节判等),且同层无 DEFAULT 分区 → 无目的地",
+          "next": null
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "accepted": 2,
+    "rejected": 6,
+    "leaves": [
+      "route_fixture.strict_mid"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "status": "rolled_back",
+  "parent": "route_fixture.events",
+  "error": {
+    "sqlstate": "23514",
+    "message_primary": "new row for relation \"middle\" violates check constraint \"events_value_check\"",
+    "constraint_name": "events_value_check",
+    "table_name": "middle",
+    "context": "COPY middle, line 1: \"100\teast\t10\t0\t-1\""
+  },
+  "failed_leaf": "route_fixture.middle",
+  "failed_leaf_oid": 17117,
+  "failed_batch_index": 0,
+  "diagnostics": {
+    "note": "诊断在独立事务内逐行重放失败批次并全部回滚,数据库净变化为 0",
+    "leaf": "route_fixture.middle",
+    "batch_size": 1,
+    "offending_rows": [
+      {
+        "line": 1,
+        "row": {
+          "row_id": 100,
+          "tenant": "east",
+          "day_seq": 10,
+          "slot": 0,
+          "value": -1
+        },
+        "sqlstate": "23514",
+        "message_primary": "new row for relation \"middle\" violates check constraint \"events_value_check\"",
+        "constraint_name": "events_value_check",
+        "table_name": "middle",
+        "context": "COPY middle, line 1: \"100\teast\t10\t0\t-1\""
+      }
+    ],
+    "rolled_back": true
+  }
+}

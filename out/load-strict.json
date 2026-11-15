@@ -1,0 +1,21 @@
+{
+  "status": "committed",
+  "parent": "route_fixture.strict",
+  "plan_fingerprint": "912273ac57aac2fb7651a60428f5d04bb0e6f05d678a934aeb68cc3da222a162",
+  "recheck": {
+    "input_sha256": "bbc1d5a8fc68f59e3de82aead6a1399456e7d9441a036fee104344269feb549d",
+    "input_rows": 8,
+    "catalog_fingerprint": "912273ac57aac2fb7651a60428f5d04bb0e6f05d678a934aeb68cc3da222a162",
+    "recheck": "ok"
+  },
+  "leaves": [
+    {
+      "leaf": "route_fixture.strict_mid",
+      "leaf_oid": 17096,
+      "batches": 1,
+      "rows": 2
+    }
+  ],
+  "total_rows": 2,
+  "transaction": "单事务:只读复核 + 全部 COPY,一次提交"
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "route_fixture.events",
+  "expect": "empty",
+  "checks": {
+    "readback": {
+      "ok": true,
+      "db_rows": 0,
+      "expected_rows": 0,
+      "missing": [],
+      "unexpected": []
+    },
+    "oracle_accepted": {
+      "ok": true,
+      "rows": [
+        {
+          "line": 1,
+          "planned_leaf": "route_fixture.middle",
+          "actual_leaf": "middle",
+          "leaf_ok": true,
+          "fields_ok": null,
+          "ok": true,
+          "note": "行已被路由到 middle(与计划一致),随后触发约束: [23514] new row for relation \"middle\" violates check constraint \"events_value_check\""
+        }
+      ]
+    },
+    "oracle_rejected": {
+      "ok": true,
+      "rows": []
+    }
+  },
+  "ok": true,
+  "transaction_note": "oracle 的 INSERT 均在验证事务内完成并整体回滚,数据库净变化为 0",
+  "status": "ok"
+}

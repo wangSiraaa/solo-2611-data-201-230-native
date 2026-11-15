@@ -3,7 +3,7 @@ node_modules/
 __pycache__/
 *.pyc
 .DS_Store
-output/
-out/
 .tmp/
-.pgdata/
+pgdata/
+pgrun/
+pgdata.log

@@ -1,0 +1,45 @@
+{
+  "status": "committed",
+  "parent": "route_fixture.events",
+  "plan_fingerprint": "a255c8611c6032ef0ca3f915ce7f21c61e32a7e8da26f7b5a2e47f8f8354eb47",
+  "recheck": {
+    "input_sha256": "bbc1d5a8fc68f59e3de82aead6a1399456e7d9441a036fee104344269feb549d",
+    "input_rows": 8,
+    "catalog_fingerprint": "a255c8611c6032ef0ca3f915ce7f21c61e32a7e8da26f7b5a2e47f8f8354eb47",
+    "recheck": "ok"
+  },
+  "leaves": [
+    {
+      "leaf": "route_fixture.early",
+      "leaf_oid": 17164,
+      "batches": 1,
+      "rows": 2
+    },
+    {
+      "leaf": "route_fixture.middle",
+      "leaf_oid": 17170,
+      "batches": 1,
+      "rows": 3
+    },
+    {
+      "leaf": "route_fixture.regional_default",
+      "leaf_oid": 17176,
+      "batches": 1,
+      "rows": 1
+    },
+    {
+      "leaf": "route_fixture.null_tenant",
+      "leaf_oid": 17182,
+      "batches": 1,
+      "rows": 1
+    },
+    {
+      "leaf": "route_fixture.other_tenant",
+      "leaf_oid": 17188,
+      "batches": 1,
+      "rows": 1
+    }
+  ],
+  "total_rows": 8,
+  "transaction": "单事务:只读复核 + 全部 COPY,一次提交"
+}

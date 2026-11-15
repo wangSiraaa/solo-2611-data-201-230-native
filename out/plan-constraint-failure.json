@@ -1,0 +1,305 @@
+{
+  "plan_format": 1,
+  "tool": "routecopy",
+  "created_utc": "2026-11-15T08:21:51.307276+00:00",
+  "parent": "route_fixture.events",
+  "parent_oid": 17103,
+  "config": {
+    "batch_rows": 3,
+    "supported_types": [
+      "bigint",
+      "integer",
+      "text"
+    ],
+    "max_partition_depth": 2
+  },
+  "input": {
+    "path": "fixtures/constraint-failure.jsonl",
+    "sha256": "ff57877a33e9facb72b30671d423a3c6c6eefd0de680d7060d138339325c8654",
+    "row_count": 1
+  },
+  "catalog_fingerprint": "62a8800c4a1898eb0a92eb51c95fb7772ce95e0d62bff4738608cc25e8df1f37",
+  "columns": [
+    {
+      "attnum": 1,
+      "name": "row_id",
+      "type": "int8",
+      "kind": "int",
+      "notnull": true
+    },
+    {
+      "attnum": 2,
+      "name": "tenant",
+      "type": "text",
+      "kind": "text",
+      "notnull": false
+    },
+    {
+      "attnum": 3,
+      "name": "day_seq",
+      "type": "int4",
+      "kind": "int",
+      "notnull": false
+    },
+    {
+      "attnum": 4,
+      "name": "slot",
+      "type": "int4",
+      "kind": "int",
+      "notnull": false
+    },
+    {
+      "attnum": 5,
+      "name": "value",
+      "type": "int4",
+      "kind": "int",
+      "notnull": false
+    }
+  ],
+  "partitions": [
+    {
+      "oid": 17103,
+      "name": "route_fixture.events",
+      "level": 0,
+      "parent_oid": null,
+      "relkind": "p",
+      "strategy": "list",
+      "key": [
+        {
+          "attnum": 2,
+          "name": "tenant",
+          "type": "text",
+          "kind": "text",
+          "collation": "C"
+        }
+      ],
+      "bound": null,
+      "bound_text": null
+    },
+    {
+      "oid": 17107,
+      "name": "route_fixture.regional",
+      "level": 1,
+      "parent_oid": 17103,
+      "relkind": "p",
+      "strategy": "range",
+      "key": [
+        {
+          "attnum": 3,
+          "name": "day_seq",
+          "type": "int4",
+          "kind": "int",
+          "collation": null
+        },
+        {
+          "attnum": 4,
+          "name": "slot",
+          "type": "int4",
+          "kind": "int",
+          "collation": null
+        }
+      ],
+      "bound": {
+        "kind": "list",
+        "values": [
+          "east",
+          "west"
+        ]
+      },
+      "bound_text": "FOR VALUES IN ('east', 'west')"
+    },
+    {
+      "oid": 17111,
+      "name": "route_fixture.early",
+      "level": 2,
+      "parent_oid": 17107,
+      "relkind": "r",
+      "strategy": null,
+      "key": [],
+      "bound": {
+        "kind": "range",
+        "lower": [
+          {
+            "t": "min"
+          },
+          {
+            "t": "min"
+          }
+        ],
+        "upper": [
+          {
+            "t": "value",
+            "v": 10
+          },
+          {
+            "t": "value",
+            "v": 0
+          }
+        ]
+      },
+      "bound_text": "FOR VALUES FROM (MINVALUE, MINVALUE) TO (10, 0)"
+    },
+    {
+      "oid": 17117,
+      "name": "route_fixture.middle",
+      "level": 2,
+      "parent_oid": 17107,
+      "relkind": "r",
+      "strategy": null,
+      "key": [],
+      "bound": {
+        "kind": "range",
+        "lower": [
+          {
+            "t": "value",
+            "v": 10
+          },
+          {
+            "t": "value",
+            "v": 0
+          }
+        ],
+        "upper": [
+          {
+            "t": "value",
+            "v": 20
+          },
+          {
+            "t": "value",
+            "v": 0
+          }
+        ]
+      },
+      "bound_text": "FOR VALUES FROM (10, 0) TO (20, 0)"
+    },
+    {
+      "oid": 17123,
+      "name": "route_fixture.regional_default",
+      "level": 2,
+      "parent_oid": 17107,
+      "relkind": "r",
+      "strategy": null,
+      "key": [],
+      "bound": {
+        "kind": "default"
+      },
+      "bound_text": "DEFAULT"
+    },
+    {
+      "oid": 17129,
+      "name": "route_fixture.null_tenant",
+      "level": 1,
+      "parent_oid": 17103,
+      "relkind": "r",
+      "strategy": null,
+      "key": [],
+      "bound": {
+        "kind": "list",
+        "values": [
+          null
+        ]
+      },
+      "bound_text": "FOR VALUES IN (NULL)"
+    },
+    {
+      "oid": 17135,
+      "name": "route_fixture.other_tenant",
+      "level": 1,
+      "parent_oid": 17103,
+      "relkind": "r",
+      "strategy": null,
+      "key": [],
+      "bound": {
+        "kind": "default"
+      },
+      "bound_text": "DEFAULT"
+    }
+  ],
+  "accepted": [
+    {
+      "line": 1,
+      "row": {
+        "row_id": 100,
+        "tenant": "east",
+        "day_seq": 10,
+        "slot": 0,
+        "value": -1
+      },
+      "leaf": "route_fixture.middle",
+      "leaf_oid": 17117,
+      "path": [
+        {
+          "level": 1,
+          "node": "route_fixture.events",
+          "node_oid": 17103,
+          "strategy": "list",
+          "key_columns": [
+            {
+              "name": "tenant",
+              "type": "text",
+              "collation": "C"
+            }
+          ],
+          "key_values": {
+            "tenant": "east"
+          },
+          "decision": "matched",
+          "basis": "LIST 键 tenant='east':命中 regional 的 IN ('east', 'west')(text 按 C collation 逐字节判等)",
+          "next": "route_fixture.regional"
+        },
+        {
+          "level": 2,
+          "node": "route_fixture.regional",
+          "node_oid": 17107,
+          "strategy": "range",
+          "key_columns": [
+            {
+              "name": "day_seq",
+              "type": "int4"
+            },
+            {
+              "name": "slot",
+              "type": "int4"
+            }
+          ],
+          "key_values": {
+            "day_seq": 10,
+            "slot": 0
+          },
+          "candidates": [
+            {
+              "partition": "route_fixture.early",
+              "bound": "FROM (MINVALUE, MINVALUE) TO (10, 0)",
+              "lower_ok": true,
+              "lower_note": "列 day_seq: 下界 MINVALUE 为负无穷,任何值都更大",
+              "upper_ok": false,
+              "upper_note": "各列与边界逐列相等",
+              "matched": false
+            },
+            {
+              "partition": "route_fixture.middle",
+              "bound": "FROM (10, 0) TO (20, 0)",
+              "lower_ok": true,
+              "lower_note": "各列与边界逐列相等",
+              "upper_ok": true,
+              "upper_note": "列 day_seq: 10 < 边界值 20",
+              "matched": true
+            }
+          ],
+          "decision": "matched",
+          "basis": "RANGE 键 (day_seq=10, slot=0):按词典序与 middle 边界 FROM (10, 0) TO (20, 0) 比较,≥ 下界且 < 上界(左闭右开)→ 命中",
+          "next": "route_fixture.middle"
+        }
+      ]
+    }
+  ],
+  "rejected": [],
+  "summary": {
+    "total": 1,
+    "accepted": 1,
+    "rejected": 0,
+    "leaves": [
+      "route_fixture.middle"
+    ]
+  }
+}

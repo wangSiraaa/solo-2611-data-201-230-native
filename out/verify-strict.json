@@ -1,0 +1,84 @@
+{
+  "parent": "route_fixture.strict",
+  "expect": "loaded",
+  "checks": {
+    "readback": {
+      "ok": true,
+      "db_rows": 2,
+      "expected_rows": 2,
+      "missing": [],
+      "unexpected": []
+    },
+    "oracle_accepted": {
+      "ok": true,
+      "rows": [
+        {
+          "line": 3,
+          "planned_leaf": "route_fixture.strict_mid",
+          "actual_leaf": "route_fixture.strict_mid",
+          "leaf_ok": true,
+          "fields_ok": true,
+          "ok": true
+        },
+        {
+          "line": 8,
+          "planned_leaf": "route_fixture.strict_mid",
+          "actual_leaf": "route_fixture.strict_mid",
+          "leaf_ok": true,
+          "fields_ok": true,
+          "ok": true
+        }
+      ]
+    },
+    "oracle_rejected": {
+      "ok": true,
+      "rows": [
+        {
+          "line": 1,
+          "reason": "no_matching_partition",
+          "check": "ok",
+          "db_error": "[23514] no partition of relation \"strict_east\" found for row",
+          "note": "数据库确认无法路由"
+        },
+        {
+          "line": 2,
+          "reason": "no_matching_partition",
+          "check": "ok",
+          "db_error": "[23514] no partition of relation \"strict\" found for row",
+          "note": "数据库确认无法路由"
+        },
+        {
+          "line": 4,
+          "reason": "no_matching_partition",
+          "check": "ok",
+          "db_error": "[23514] no partition of relation \"strict\" found for row",
+          "note": "数据库确认无法路由"
+        },
+        {
+          "line": 5,
+          "reason": "no_matching_partition",
+          "check": "ok",
+          "db_error": "[23514] no partition of relation \"strict_east\" found for row",
+          "note": "数据库确认无法路由"
+        },
+        {
+          "line": 6,
+          "reason": "no_matching_partition",
+          "check": "ok",
+          "db_error": "[23514] no partition of relation \"strict\" found for row",
+          "note": "数据库确认无法路由"
+        },
+        {
+          "line": 7,
+          "reason": "no_matching_partition",
+          "check": "ok",
+          "db_error": "[23514] no partition of relation \"strict\" found for row",
+          "note": "数据库确认无法路由"
+        }
+      ]
+    }
+  },
+  "ok": true,
+  "transaction_note": "oracle 的 INSERT 均在验证事务内完成并整体回滚,数据库净变化为 0",
+  "status": "ok"
+}
